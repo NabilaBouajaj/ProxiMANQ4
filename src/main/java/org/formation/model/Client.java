@@ -2,6 +2,7 @@ package org.formation.model;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,9 @@ public class Client extends Personne {
 	@Autowired
 	@Embedded
 	Adresse adresse;
+	
+	@ManyToOne
+	private Conseiller conseiller;
 
 	public String getEmail() {
 		return email;

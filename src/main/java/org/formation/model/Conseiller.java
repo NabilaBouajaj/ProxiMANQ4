@@ -1,21 +1,31 @@
 package org.formation.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 @Entity
 public class Conseiller extends Banquier{
 	
-	private List<Client> listClients;
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="Conseiller_ID")
+	private List<Client> listClients = new ArrayList<Client>();
 	
 	
 
-	public List<Client> getClients() {
+	
+
+	public List<Client> getListClients() {
 		return listClients;
 	}
 
-	public void setClients(List<Client> clients) {
-		this.listClients = clients;
+	public void setListClients(List<Client> listClients) {
+		this.listClients = listClients;
 	}
 
 	public Conseiller(String nom, String prenom, String login, String motDePasse, List<Client> clients) {
