@@ -6,7 +6,10 @@ import static org.junit.Assert.assertNotNull;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
+import org.formation.dao.IClientDao;
+import org.formation.dao.ICompteDao;
+import org.formation.dao.IConseillerDao;
+import org.formation.model.Client;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,13 @@ public class persistenceTests {
 
 	
 	@Autowired
+	IClientDao clientDao;
+	
+	@Autowired
+	IConseillerDao conseillerDao;
+	
+	@Autowired
+	ICompteDao compteDao;
    
 	
 	
@@ -51,11 +61,11 @@ public class persistenceTests {
 	@Test
 	@Transactional
 	public void testSaveOrderWithItems() throws Exception {
-//		Order order = new Order();
-//		order.getItems().add(new Item());
-//		entityManager.persist(order);
-//		entityManager.flush();
-//		assertNotNull(order.getId());
+		Client c = new Client();
+		c.getItems().add(new Item());
+		entityManager.persist(order);
+		entityManager.flush();
+		assertNotNull(order.getId());
 	}
 
 	@Test

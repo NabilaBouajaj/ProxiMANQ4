@@ -1,5 +1,9 @@
 package org.formation.dao;
 
-public interface IClientDao {
+
+
+import org.formation.model.Client;
+
+public interface IClientDao extends EntityDao<Client>{
 
 }

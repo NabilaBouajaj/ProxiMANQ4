@@ -1,5 +1,7 @@
 package org.formation.dao;
 
-public interface IConseillerDao {
+import org.formation.model.Conseiller;
+
+public interface IConseillerDao extends EntityDao<Conseiller>{
 
 }

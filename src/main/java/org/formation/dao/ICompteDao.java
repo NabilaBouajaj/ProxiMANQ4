@@ -1,5 +1,7 @@
 package org.formation.dao;
 
-public interface ICompteDao {
+import org.formation.model.Compte;
+
+public interface ICompteDao extends EntityDao<Compte>{
 
 }
