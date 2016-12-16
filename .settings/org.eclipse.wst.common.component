@@ -4,7 +4,12 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
         <property name="java-output-path" value="/springJsf/target/classes"/>
         <property name="context-root" value="springJsf"/>
+=======
+        <property name="context-root" value="springJsf"/>
+        <property name="java-output-path" value="/ProxiMANQ4/target/classes"/>
+>>>>>>> 62993e17c04be90ad29c1959a84906661291c63c
     </wb-module>
 </project-modules>
