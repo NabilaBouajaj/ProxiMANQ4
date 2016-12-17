@@ -23,6 +23,8 @@ public class Client extends Personne {
 	@JoinColumn(name="conseiller_id")
 	private Conseiller conseiller;
 
+	
+
 	public String getEmail() {
 		return email;
 	}
