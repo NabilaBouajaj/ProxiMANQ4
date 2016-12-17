@@ -28,7 +28,12 @@ public class Conseiller extends Banquier{
 
 	
 
+
 	public Set<Client> getListClients() {
+
+	
+
+	
 		return listClients;
 	}
 

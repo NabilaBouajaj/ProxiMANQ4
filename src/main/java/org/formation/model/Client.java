@@ -18,9 +18,6 @@ import javax.persistence.NamedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-//@Inheritance(strategy=InheritanceType.JOINED)
-//@ManagedBean
-//@ApplicationScoped
 public class Client {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -86,7 +83,8 @@ public class Client {
 	}
 
 	public Client(String nom, String prenom, String email, Adresse adresse) {
-		super(nom, prenom);
+		this.nom = nom;
+		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
 	
