@@ -18,6 +18,14 @@ public class Client extends Personne {
 	@ManyToOne
 	private Conseiller conseiller;
 
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+
 	public String getEmail() {
 		return email;
 	}

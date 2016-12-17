@@ -20,6 +20,10 @@ public class Conseiller extends Banquier{
 
 	
 
+	public Conseiller(String nom, String prenom, String login, String motDePasse) {
+		super(nom, prenom, login, motDePasse);
+	}
+
 	public List<Client> getListClients() {
 		return listClients;
 	}
