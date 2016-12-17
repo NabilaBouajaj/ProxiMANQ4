@@ -4,14 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-<<<<<<< HEAD
         <property name="java-output-path" value="/ProxiMANQ4/target/classes"/>
         <property name="context-root" value="ProxiMANQ4"/>
-=======
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
-        <property name="context-root" value="ProxiMANQ4"/>
-        <property name="java-output-path" value="/ProxiMANQ4/target/classes"/>
->>>>>>> 5322cbb01fd656b317e5c4ea7d06fd1f2fe29da5
     </wb-module>
 </project-modules>
