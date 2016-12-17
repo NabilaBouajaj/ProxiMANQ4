@@ -1,5 +1,11 @@
 package org.formation.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Banquier extends Personne{
 	
 	private String login;

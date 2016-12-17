@@ -1,19 +1,27 @@
 package org.formation.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 @Entity
+//@Inheritance(strategy=InheritanceType.JOINED)
 public class Gerant extends Banquier{
 	
-	private List<Conseiller> listConseillers;
+	@OneToMany(mappedBy="gerant", cascade={CascadeType.PERSIST})
+	private Set<Conseiller> listConseillers= new HashSet<Conseiller>();
 
-	public List<Conseiller> getListConseillers() {
+	public Set<Conseiller> getListConseillers() {
 		return listConseillers;
 	}
 
-	public void setListConseillers(List<Conseiller> listConseillers) {
+	public void setListConseillers(Set<Conseiller> listConseillers) {
 		this.listConseillers = listConseillers;
 	}
 
