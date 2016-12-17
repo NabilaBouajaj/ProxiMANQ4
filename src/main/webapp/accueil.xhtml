@@ -13,18 +13,17 @@
 
 Vous avez en gestion :
 			<ul>
-				<li>#{c_session.listeClients.size()} clients</li>
-				<li>#{conseillerService.obtenirNombreCompte()} comptes</li>
-				<li>#{conseillerService.obtenirSommeTotaleConseiller()}
-					euros</li>
+				<li>#{bankController.obtenirListeClients().size()} clients</li>
+				<li>#{bankController.obtenirNombreCompte()} comptes</li>
+				<!-- 				<li>#{bankController.obtenirSommeTotaleConseiller()} euros</li> -->
 			</ul>
 
 			<div class="well well-lg">
-				<p:dataTable value="#{conseillerController.obtenirListeClients()}"
-					var="c">
+				<p:dataTable value="#{bankController.obtenirListeClients()}" var="c">
 
 					<p:column headerText="Nom">
 						<h:form>
+
 							<h:commandLink value="#{c.nom}"
 								action="#{clientService.detailsClient(c.id)}">
 							</h:commandLink>
@@ -38,10 +37,32 @@ Vous avez en gestion :
 							</h:commandLink>
 						</h:form>
 					</p:column>
-
-					<p:column headerText="Adresse">
+					<p:column headerText="Numéro">
 						<h:form>
-							<h:commandLink value="#{c.adresse}"
+							<h:commandLink value="#{c.adresse.numero}"
+								action="#{clientService.detailsClient(c.id)}">
+							</h:commandLink>
+						</h:form>
+					</p:column>
+
+					<p:column headerText="Rue">
+						<h:form>
+							<h:commandLink value="#{c.adresse.rue}"
+								action="#{clientService.detailsClient(c.id)}">
+							</h:commandLink>
+						</h:form>
+					</p:column>
+
+					<p:column headerText="Code Postal">
+						<h:form>
+							<h:commandLink value="#{c.adresse.codePostal}"
+								action="#{clientService.detailsClient(c.id)}">
+							</h:commandLink>
+						</h:form>
+					</p:column>
+					<p:column headerText="Ville">
+						<h:form>
+							<h:commandLink value="#{c.adresse.ville}"
 								action="#{clientService.detailsClient(c.id)}">
 							</h:commandLink>
 						</h:form>
@@ -55,10 +76,10 @@ Vous avez en gestion :
 						</h:form>
 					</p:column>
 
-				
+
 
 					<p:column headerText="Solde Compte Courant">
-						<h:outputText value="#{c.compteCourant.solde}" />
+						<!-- 						<h:outputText value="#{c.compteCourant.solde}" /> -->
 					</p:column>
 
 
