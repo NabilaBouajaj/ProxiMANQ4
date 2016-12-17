@@ -10,6 +10,7 @@ import org.formation.dao.IClientDao;
 import org.formation.dao.ICompteDao;
 import org.formation.dao.IConseillerDao;
 import org.formation.model.Client;
+import org.formation.model.Conseiller;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,36 +42,36 @@ public class persistenceTests {
 	
 	
 	
-	@Test
-	@Transactional
-	public void testDaoImpl() throws Exception {
+//	@Test
+//	@Transactional
+//	public void testDaoImpl() throws Exception {
 //		Item item = new Item();
 //		itemDao.persist(item);
 //		assertEquals(1, itemDao.count());
-	}
+//	}
 	
-	@Test
-	@Transactional
-	public void testDaoServices() throws Exception{
+//	@Test
+//	@Transactional
+//	public void testDaoServices() throws Exception{
 //		Order order = new Order();
 //		order.getItems().add(new Item());
 //		orderDao.persist(order);
 //		assertEquals(1, orderDao.count());
-	}
+//	}
 	
 	@Test
 	@Transactional
-	public void testSaveOrderWithItems() throws Exception {
-		Client c = new Client();
-		c.getItems().add(new Item());
-		entityManager.persist(order);
+	public void testSaveConseillerWithClient() throws Exception {
+		Conseiller c = new Conseiller();
+		c.getListClients().add(new Client());
+		entityManager.persist(c);
 		entityManager.flush();
-		assertNotNull(order.getId());
+		assertNotNull(c.getId());
 	}
-
-	@Test
-	@Transactional
-	public void testSaveAndGet() throws Exception {
+//
+//	@Test
+//	@Transactional
+//	public void testSaveAndGet() throws Exception {
 //		Order order = new Order();
 //		order.getItems().add(new Item());
 //		entityManager.persist(order);
@@ -81,11 +82,11 @@ public class persistenceTests {
 //		Order other = (Order) entityManager.find(Order.class, order.getId());
 //		assertEquals(1, other.getItems().size());
 //		assertEquals(other, other.getItems().iterator().next().getOrder());
-	}
+//	}
 
-	@Test
-	@Transactional
-	public void testSaveAndFind() throws Exception {
+//	@Test
+//	@Transactional
+//	public void testSaveAndFind() throws Exception {
 //		Order order = new Order();
 //		Item item = new Item();
 //		item.setProduct("foo");
@@ -101,7 +102,7 @@ public class persistenceTests {
 //				.setParameter("product", "foo").getSingleResult();
 //		assertEquals(1, other.getItems().size());
 //		assertEquals(other, other.getItems().iterator().next().getOrder());
-	}
+//	}
 	
 	
 	
