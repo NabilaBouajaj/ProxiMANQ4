@@ -9,6 +9,7 @@
 
 	<!-- Scan for property file -->
 	<context:property-placeholder location="classpath:META-INF/spring/*.properties" />
+	<context:component-scan base-package="org.formation"/>
 
 
 
