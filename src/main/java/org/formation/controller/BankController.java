@@ -95,6 +95,8 @@ public class BankController {
 		Client client = new Client("Christ", "Jesus", "JesusChrist@paradis.amen",
 				new Adresse(7, "rue du paradis", "Ciel", "77777"));
 		conseiller.getListClients().add(client);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.setAttribute("ConseillerConnecté", conseiller);
 		listclient = conseiller.getListClients();
 
 		// listclient.add(client);
