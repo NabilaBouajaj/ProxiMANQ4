@@ -1,11 +1,11 @@
 package org.formation.service;
 
-
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 
 import org.formation.dao.IConseillerDao;
 import org.formation.model.Conseiller;
@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 @Service
-public class ConseillerService {
+public class ConseillerService implements IConseillerService {
 
 	@Autowired
 	IConseillerDao conseillerDao;

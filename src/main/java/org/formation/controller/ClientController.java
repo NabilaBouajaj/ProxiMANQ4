@@ -67,9 +67,12 @@ public class ClientController {
 	ClientService clientService = new ClientService();
 
 	public String creerClient() throws Exception {
+
+
 		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
 		Client client = new Client(nom, prenom, null, adresse);
-		clientService.persist(client);
+		clientService.createClient(client);
+
 		return "accueil.xhtml";
 
 	}
