@@ -29,7 +29,7 @@ public class CompteService {
 		compteDao.remove(id);
 	}
 
-	public Compte findById(Compte id) throws Exception {
+	public Compte findById(int id) throws Exception {
 		return compteDao.findById(id);
 	}
 

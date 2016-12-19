@@ -30,7 +30,7 @@ public class ConseillerService {
 		conseillerDao.remove(id);
 	}
 
-	public Conseiller findById(Conseiller id) throws Exception {
+	public Conseiller findById(int id) throws Exception {
 		return conseillerDao.findById(id);
 	}
 

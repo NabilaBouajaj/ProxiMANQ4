@@ -31,7 +31,7 @@ public void persist(Client c) throws Exception{
 		clientDao.remove(id);
 	}
 	
-	public Client findById(Client id) throws Exception{
+	public Client findById(int id) throws Exception{
 		return clientDao.findById(id);
 	}
 	

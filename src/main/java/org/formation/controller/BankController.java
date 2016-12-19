@@ -92,7 +92,7 @@ public class BankController {
 	// }
 
 	public List<Client> obtenirListeClients() {
-		Client client = new Client("Christ", "Jesu", "JesuChrist@paradis.amen",
+		Client client = new Client("Christ", "Jesus", "JesusChrist@paradis.amen",
 				new Adresse(7, "rue du paradis", "Ciel", "77777"));
 		conseiller.getListClients().add(client);
 		listclient = conseiller.getListClients();
@@ -106,5 +106,6 @@ public class BankController {
 		return 0;
 
 	}
+	
 
 }

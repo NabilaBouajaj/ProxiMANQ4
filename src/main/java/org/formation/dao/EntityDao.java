@@ -14,7 +14,7 @@ public interface EntityDao<E> {
 
 	public void remove(Object id) throws Exception;
 	
-	public E findById(Object id) throws Exception;
+	public E findById(int id) throws Exception;
 	
 	public List<E> findAll() throws Exception;
 	
