@@ -26,7 +26,7 @@ public class Client {
 	
 	private String email;
 	
-//	@Autowired
+
 	@Embedded
 	Adresse adresse;
 	

@@ -12,7 +12,7 @@ public class ClientController {
 	ClientService clientService;
 
 	public String creerClient() throws Exception {
-		clientService.persist(client);
+		clientService.createClient(client);
 		return "accueil.xhtml";
 
 	}

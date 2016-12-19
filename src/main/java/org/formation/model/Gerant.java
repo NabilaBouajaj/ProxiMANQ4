@@ -1,18 +1,16 @@
 package org.formation.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+
 import javax.persistence.OneToMany;
 
 @Entity
-//@Inheritance(strategy=InheritanceType.JOINED)
 public class Gerant extends Banquier{
 	
 	@OneToMany(mappedBy="gerant", cascade={CascadeType.PERSIST})

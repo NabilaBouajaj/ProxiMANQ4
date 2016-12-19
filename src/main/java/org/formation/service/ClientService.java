@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 @Component
 public class ClientService {
 	
-	@Autowired
+//	@Autowired
 	IClientDao clientDao;
 	
 	
-public void persist(Client c) throws Exception{
+public void createClient(Client c) throws Exception{
 	clientDao.persist(c);
 	
 }
