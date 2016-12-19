@@ -14,10 +14,24 @@
 		<h:form>
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Nom" />
-				<p:inputText value="#{clientController.nom}" />
+				<p:inputText value="#{clientController.nom}" required="true"
+					requiredMessage="Saisie obligatoire"
+					validatorMessage="Au moins 2 lettres">
+					<f:validateRegex pattern="(^([a-z][A-Z]){2,})" />
+				</p:inputText>
 				<p:outputLabel value="Prenom" />
-				<p:inputText value="#{clientController.prenom}" />
-				<p:outputLabel value="Rue" />
+				<p:inputText value="#{clientController.prenom}" required="true"
+					requiredMessage="Saisie obligatoire"
+					validatorMessage="Au moins 2 lettres">
+					<f:validateRegex pattern="(^([a-z][A-Z]){2,})" />
+				</p:inputText>
+				<p:outputLabel value="Email" />
+				<p:inputText value="#{clientController.email}" required="true"
+					requiredMessage="Saisie obligatoire"
+					validatorMessage="sous la forme xx@xx.xx"></p:inputText>
+				<p:outputLabel value="Numero" />
+				<p:inputText value="#{clientController.numero}" />
+				<p:outputLabel value="Code postal" />
 				<p:inputText value="#{clientController.rue}" />
 				<p:outputLabel value="Code postal" />
 				<p:inputText value="#{clientController.codePostal}" />
