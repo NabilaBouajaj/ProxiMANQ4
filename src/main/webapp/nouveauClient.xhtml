@@ -11,7 +11,31 @@
 	<ui:define name="content">
 
 		<h1>Création de client</h1>
+		<h:form>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nom" />
+				<p:inputText value="#{bankController.nom}" />
+				<p:outputLabel value="Prenom" />
+				<p:inputText value="#{bankController.prenom}" />
+				<p:outputLabel value="Adresse" />
+				<p:inputText value="#{bankController.adresse.rue}" />
+				<p:outputLabel value="Code Postal" />
+				<p:inputText value="#{bankController.adresse.codepostal}" />
+				<p:outputLabel value="Ville" />
+				<p:inputText value="#{bankController.adresse.ville}" />
+				<p:outputLabel value="Telephone" />
+				<p:selectManyCheckbox id="basic"
+					value="#{bankController.ouvertureCompte}">
+					<f:selectItem itemLabel="Compte Courant" itemValue="cc" />
+					<f:selectItem itemLabel="Compte Epargne" itemValue="ce" />
+				</p:selectManyCheckbox>
+			</p:panelGrid>
 
+			<p class="creer">
+				<p:commandButton action="#{bankController.creerClient()}"
+					value="Creer le client" />
+			</p>
+		</h:form>
 
 
 	</ui:define>
