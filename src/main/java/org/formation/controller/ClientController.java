@@ -3,7 +3,7 @@ package org.formation.controller;
 import org.formation.model.Adresse;
 import org.formation.model.Client;
 import org.formation.service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -12,10 +12,19 @@ import org.springframework.stereotype.Controller;
 public class ClientController {
 	String nom;
 	String prenom;
+	String email;
 	String rue;
 	String ville;
 	int numero;
 	String codePostal;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getNom() {
 		return nom;
@@ -69,12 +78,15 @@ public class ClientController {
 	ClientService clientService = new ClientService();
 
 	public String creerClient() throws Exception {
-		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext-db-mysql.xml");
-		ClientService clientService = context.getBean("clientService", ClientService.class);
+
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
+		System.out.println("creerClient");
+
 
 		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
-		Client client = new Client(nom, prenom, null, adresse);
-
+		Client client = new Client(nom, prenom, email, adresse);
 		clientService.createClient(client);
 
 		return "accueil.xhtml";

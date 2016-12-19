@@ -7,14 +7,14 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import org.formation.model.Adresse;
-import org.formation.model.Banquier;
+
 import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.formation.service.ClientService;
 import org.formation.service.ConseillerService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 
 @Controller
 public class BankController {
@@ -95,6 +95,8 @@ public class BankController {
 		Client client = new Client("Christ", "Jesus", "JesusChrist@paradis.amen",
 				new Adresse(7, "rue du paradis", "Ciel", "77777"));
 		conseiller.getListClients().add(client);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.setAttribute("ConseillerConnecté", conseiller);
 		listclient = conseiller.getListClients();
 
 		// listclient.add(client);
