@@ -1,26 +1,25 @@
 package org.formation.model;
 
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
-import java.util.Set;
+import java.util.List;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.springframework.stereotype.Component;
+
 @Entity
-//@Inheritance(strategy=InheritanceType.JOINED)
-//@Component
+
 public class Conseiller extends Banquier{
 	
 	@OneToMany(cascade={CascadeType.PERSIST}, mappedBy="conseiller")
-	private Set<Client> listClients = new HashSet<Client>();
+	private List<Client> listClients = new ArrayList<Client>();
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="gerant_id")
@@ -29,7 +28,7 @@ public class Conseiller extends Banquier{
 	
 
 
-	public Set<Client> getListClients() {
+	public List<Client> getListClients() {
 
 	
 
@@ -37,22 +36,24 @@ public class Conseiller extends Banquier{
 		return listClients;
 	}
 
-	public void setListClients(Set<Client> listClients) {
+	public void setListClients(List<Client> listClients) {
 		this.listClients = listClients;
 	}
 
-	public Conseiller(String nom, String prenom, String login, String motDePasse, Set<Client> clients) {
+	
+
+
+
+	public Conseiller(String nom, String prenom, String login, String motDePasse) {
 		super(nom, prenom, login, motDePasse);
-		this.listClients = clients;
+		
 	}
 
 	public Conseiller() {
 		
 	}
 
-	public Conseiller(String nom, String prenom, String login, String motDePasse) {
-		super(nom, prenom, login, motDePasse);
-	}
+	
 	
 	
 	
