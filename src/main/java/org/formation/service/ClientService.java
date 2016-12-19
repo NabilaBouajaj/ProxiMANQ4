@@ -2,16 +2,17 @@ package org.formation.service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
+
 
 import org.formation.dao.IClientDao;
 import org.formation.model.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
 
 @Component
 public class ClientService {
+
 	@Autowired
 	IClientDao clientDao;
 

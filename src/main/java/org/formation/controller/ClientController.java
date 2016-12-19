@@ -3,6 +3,7 @@ package org.formation.controller;
 import org.formation.model.Adresse;
 import org.formation.model.Client;
 import org.formation.service.ClientService;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -77,10 +78,12 @@ public class ClientController {
 	ClientService clientService = new ClientService();
 
 	public String creerClient() throws Exception {
+
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
 		System.out.println("creerClient");
+
 
 		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
 		Client client = new Client(nom, prenom, email, adresse);

@@ -7,14 +7,14 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import org.formation.model.Adresse;
-import org.formation.model.Banquier;
+
 import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.formation.service.ClientService;
 import org.formation.service.ConseillerService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 
 @Controller
 public class BankController {
