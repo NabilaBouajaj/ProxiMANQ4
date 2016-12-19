@@ -12,11 +12,6 @@ import org.springframework.stereotype.Service;
 
 @Component
 public class ClientService {
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> bab73f05658ff1e3c76b0013087e166cbf10decd
 	@Autowired
 	IClientDao clientDao;
 
