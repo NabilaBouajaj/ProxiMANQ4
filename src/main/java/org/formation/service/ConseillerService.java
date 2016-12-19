@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 
 import org.formation.dao.IConseillerDao;
 import org.formation.model.Conseiller;
@@ -13,9 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 @Service
-public class ConseillerService {
+public class ConseillerService implements IConseillerService {
 
-	@Autowired
+	@Resource
 	IConseillerDao conseillerDao;
 
 	public void persist(Conseiller conseiller) throws Exception {

@@ -48,10 +48,10 @@ public class BankController {
 		this.password = password;
 	}
 
-	@Autowired
-	ConseillerService conseillerService;
-	@Autowired
-	ClientService clientService;
+	// @Autowired
+	ConseillerService conseillerService = new ConseillerService();
+	// @Autowired
+	ClientService clientService = new ClientService();
 
 	// public String seConnecter(Model model) throws Exception {
 	// int varpers = 0;
@@ -106,6 +106,5 @@ public class BankController {
 		return 0;
 
 	}
-	
 
 }

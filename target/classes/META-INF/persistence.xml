@@ -6,6 +6,11 @@
 
 	<persistence-unit name="persistenceUnit"
 		transaction-type="RESOURCE_LOCAL">
+		<class>org.formation.model.Client</class>
+		<class>org.formation.model.Adresse</class>
+		<class>org.formation.model.Conseiller</class>
+		<class>org.formation.model.Banquier</class>
+		<class>org.formation.model.Gerant</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />

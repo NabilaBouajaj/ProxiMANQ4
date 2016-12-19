@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 
 import org.formation.dao.ICompteDao;
 import org.formation.model.Compte;
@@ -12,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 @Service
-public class CompteService {
+public class CompteService{
 
-	@Autowired
+	@Resource
 	ICompteDao compteDao;
 
 	public void persist(Compte compte) throws Exception {
