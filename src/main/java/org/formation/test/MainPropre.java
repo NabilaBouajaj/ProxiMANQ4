@@ -12,8 +12,8 @@ public class MainPropre {
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
-		IClientService clientService = applicationContext.getBean("clientService", ClientService.class);
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
 		Client client = new Client("nom", "jidrs", "ovs", new Adresse());
-		clientService.persist(client);
+		clientService.createClient(client);
 	}
 }

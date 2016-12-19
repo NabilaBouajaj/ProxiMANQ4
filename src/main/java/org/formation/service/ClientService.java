@@ -6,59 +6,47 @@ import javax.annotation.Resource;
 
 import org.formation.dao.IClientDao;
 import org.formation.model.Client;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
-public class ClientService implements IClientService {
-	@Resource
-	private IClientDao iclientdao;
+@Component
+public class ClientService {
 
-	@Override
-	public void persist(Client c) throws Exception {
-		iclientdao.persist(c);
+	@Autowired
+	IClientDao clientDao;
+
+	public void createClient(Client c) throws Exception {
+		clientDao.persist(c);
 
 	}
 
-	@Override
 	public void merge(Client c) throws Exception {
-		// TODO Auto-generated method stub
-
+		clientDao.merge(c);
 	}
 
-	@Override
-	public void remove(Client c) throws Exception {
-		// TODO Auto-generated method stub
-
+	public void remove(Client id) throws Exception {
+		clientDao.remove(id);
 	}
 
-	@Override
 	public Client findById(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return clientDao.findById(id);
 	}
 
-	@Override
 	public List<Client> findAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return clientDao.findAll();
 	}
 
-	@Override
-	public List<Client> findByProperty(String prop, Object val) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Client> findByProperty(String prop, Client motcle) throws Exception {
+		return clientDao.findByProperty(prop, motcle);
 	}
 
-	@Override
 	public List<Client> findInRange(int firstResult, int maxResults) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return clientDao.findInRange(firstResult, maxResults);
 	}
 
-	@Override
 	public long count() throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+		return clientDao.count();
 
+	}
 }

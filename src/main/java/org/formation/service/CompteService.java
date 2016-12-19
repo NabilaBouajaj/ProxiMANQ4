@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 @Service
-public class CompteService{
+public class CompteService {
 
-	@Resource
+	@Autowired
 	ICompteDao compteDao;
 
 	public void persist(Compte compte) throws Exception {

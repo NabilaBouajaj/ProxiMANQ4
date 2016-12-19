@@ -32,12 +32,12 @@ public class MainTest {
 //		clientDao.persist(client);
 //		
 		
-		
-		ApplicationContext context = new ClassPathXmlApplicationContext("BankConfig", BankConfig.class);
+		 
+		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext-db-mysql.xml");
 		ClientService clientService = context.getBean("clientService", ClientService.class);
-		//clientService.
-//		clientService.addClient(new Client("toto","tata","log2","mdp2",new Adresse(36, "avenue Cyrnos", "Paris")));
-//		clientService.addClient(new Client("Bernard","Tapie","log2","mdp2",new Adresse(36, "avenue Cyrnos", "Paris")));
+
+		clientService.createClient(new Client("toto","tata","log2",new Adresse(36, "avenue Cyrnos", "Paris","hhh")));
+		clientService.createClient(new Client("Bernard","Tapie","log2",new Adresse(36, "avenue Cyrnos", "Paris", "hhhh")));
 //	    System.out.println("!!!!!!!!!!\n"+service.listClients());
 	}
 

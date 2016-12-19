@@ -12,6 +12,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Compte {
