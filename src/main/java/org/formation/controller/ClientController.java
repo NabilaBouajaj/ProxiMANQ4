@@ -15,7 +15,7 @@ public class ClientController {
 	String email;
 	String rue;
 	String ville;
-	int numero;
+	String numero;
 	String codePostal;
 
 	public String getEmail() {
@@ -58,11 +58,11 @@ public class ClientController {
 		this.ville = ville;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
