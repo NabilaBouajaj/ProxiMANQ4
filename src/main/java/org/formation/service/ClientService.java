@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Component
 public class ClientService {
 	
-//	@Autowired
+	@Autowired
 	IClientDao clientDao;
 	
 	
