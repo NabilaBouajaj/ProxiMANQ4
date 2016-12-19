@@ -15,7 +15,7 @@
 
 	
 	<import resource="classpath:META-INF/spring/applicationContext-*.xml" />
-	<mvc:annotation-driven />
+	
 	
 
 </beans>

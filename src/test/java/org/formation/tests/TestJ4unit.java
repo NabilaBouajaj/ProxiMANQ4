@@ -1,4 +1,4 @@
-package org.formation.test;
+package org.formation.tests;
 
 import static org.junit.Assert.*;
 
