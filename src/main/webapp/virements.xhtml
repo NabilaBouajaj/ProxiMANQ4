@@ -14,6 +14,74 @@
 		<h1>Virements</h1>
 
 
+			<form class="virement" action="#{bankController.virement}">
+				<label for="idCompteExp" class="sr-only">ID Compte
+					Expéditeur</label>
+				<div class="input-group">
+					<input type="text" id="idCompteExp" name="idCompteExp"
+						class="form-control" placeholder="ID Compte expéditeur"
+						required="true" />
+				</div>
+				
+				<br /> <label for="idCompteDes" class="sr-only">ID Compte
+					Déstinataire</label>
+				<div class="input-group">
+					<input type="text" id="idCompteDes" name="idCompteDes"
+						class="form-control" placeholder="ID Compte destinataire"
+						required="true" />
+				</div>
+				<br /> <label class="sr-only" for="exampleInputAmount">Montant
+				</label>
+
+				<div class="input-group">
+
+					<input type="text" name="montant" class="form-control"
+						id="exampleInputAmount" placeholder="Montant" />
+
+				</div>
+
+				<button type="submit" class="btn btn-primary">Transfer cash</button>
+
+				<div>
+					<input class="form-control" type="hidden" name="emetteur"
+						value="${emetteur}" />
+				</div>
+				<div>
+					<input class="form-control" type="hidden" name="expediteur"
+						value="${expediteur}" />
+				</div>
+			</form>
+<div class="container">
+				<div class="row col-md-6 col-md-offset-2 custyle">
+					<table class="table table-striped custab">
+						<thead>
+
+							<tr>
+								<th>ID</th>
+								<th>Nom</th>
+								<th>Prenom</th>
+								<th>ID compte courant</th>
+								<th>Solde</th>
+								<th>ID compte epargne</th>
+								<th>Solde</th>
+
+							</tr>
+						</thead>
+						<h:dataTable value="#{clientController.client}" var="client">
+							<tr>
+								<td>#{client.id}</td>
+								<td>#{client.nom}</td>
+								<td>#{client.prenom}</td>
+								<td>#{courant.idCompte}</td>
+								<td>#{courant.montant}</td>
+								<td>#{epargne.idCompte}</td>
+								<td>#{epargne.montant}</td>
+
+							</tr>
+						</h:dataTable>
+					</table>
+				</div>
+			</div>
 
 	</ui:define>
 </ui:composition>

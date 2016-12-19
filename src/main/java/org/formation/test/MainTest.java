@@ -36,8 +36,8 @@ public class MainTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext-db-mysql.xml");
 		ClientService clientService = context.getBean("clientService", ClientService.class);
 
-		clientService.createClient(new Client("toto","tata","log2",new Adresse(36, "avenue Cyrnos", "Paris","hhh")));
-		clientService.createClient(new Client("Bernard","Tapie","log2",new Adresse(36, "avenue Cyrnos", "Paris", "hhhh")));
+		clientService.createClient(new Client("toto","tata","log2",new Adresse("36", "avenue Cyrnos", "Paris","hhh")));
+		clientService.createClient(new Client("Bernard","Tapie","log2",new Adresse("36", "avenue Cyrnos", "Paris", "hhhh")));
 //	    System.out.println("!!!!!!!!!!\n"+service.listClients());
 	}
 
