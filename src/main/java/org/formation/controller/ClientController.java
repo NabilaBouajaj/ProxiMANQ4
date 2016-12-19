@@ -1,5 +1,6 @@
 package org.formation.controller;
 
+import org.formation.model.Adresse;
 import org.formation.model.Client;
 import org.formation.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +8,71 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class ClientController {
-	Client client;
-	@Autowired
-	ClientService clientService;
+	String nom;
+	String prenom;
+	String rue;
+	String ville;
+	int numero;
+	String codePostal;
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getRue() {
+		return rue;
+	}
+
+	public void setRue(String rue) {
+		this.rue = rue;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getCodePostal() {
+		return codePostal;
+	}
+
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
+
+	// @Autowired
+	ClientService clientService = new ClientService();
 
 	public String creerClient() throws Exception {
+
+		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
+		Client client = new Client(nom, prenom, null, adresse);
+
 		clientService.createClient(client);
+
 		return "accueil.xhtml";
 
 	}

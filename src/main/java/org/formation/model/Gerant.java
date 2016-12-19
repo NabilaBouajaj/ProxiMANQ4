@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-
+import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 
 import javax.persistence.OneToMany;
 
 @Entity
-public class Gerant extends Banquier{
-	
-	@OneToMany(mappedBy="gerant", cascade={CascadeType.PERSIST})
-	private List<Conseiller> listConseillers= new ArrayList<Conseiller>();
+public class Gerant extends Banquier {
+
+	@OneToMany(mappedBy = "gerant", cascade = { CascadeType.PERSIST })
+	private List<Conseiller> listConseillers = new ArrayList<Conseiller>();
 
 	public List<Conseiller> getListConseillers() {
 		return listConseillers;
@@ -24,8 +24,6 @@ public class Gerant extends Banquier{
 		this.listConseillers = listConseillers;
 	}
 
-	
-
 	public Gerant(String nom, String prenom, String login, String motDePasse, List<Conseiller> listConseillers) {
 		super(nom, prenom, login, motDePasse);
 		this.listConseillers = listConseillers;
@@ -34,10 +32,5 @@ public class Gerant extends Banquier{
 	public Gerant() {
 
 	}
-
-	
-	
-	
-	
 
 }
