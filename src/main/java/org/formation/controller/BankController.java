@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class BankController implements Serializable {
+	private static final long serialVersionUID = 3457285546581409379L;
 	// Banquier banq = new Banquier();
 	String login;
 	String password;

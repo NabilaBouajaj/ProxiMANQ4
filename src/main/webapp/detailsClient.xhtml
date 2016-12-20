@@ -10,7 +10,7 @@
 <ui:composition template="/WEB-INF/tags/layout.xhtml">
 	<ui:define name="content">
 
-		<h1>Client ${client.nom} ${client.prenom}</h1>
+		<!-- 		<h1>Client ${client.nom} ${client.prenom}</h1> -->
 
 		<h1>Détail du client</h1>
 		<h:form>
@@ -20,17 +20,22 @@
 				<p:outputLabel value="Prenom" />
 				<p:outputLabel value="#{clientController.prenom}" />
 				<p:outputLabel value="Email" />
-				<p:outputLabel value="#{clientController.email}" />				
+				<p:outputLabel value="#{clientController.email}" />
 				<p:outputLabel value="Numero" />
-				<p:outputLabel value="#{clientController.adresse.numero}" />
+				<p:outputLabel value="#{clientController.numero}" />
 				<p:outputLabel value="Rue" />
-				<p:outputLabel value="#{clientController.adresse.rue}" />
+				<p:outputLabel value="#{clientController.rue}" />
 				<p:outputLabel value="Code Postal" />
-				<p:outputLabel value="#{clientController.adresse.codePostal}" />
+				<p:outputLabel value="#{clientController.codePostal}" />
 				<p:outputLabel value="Ville" />
-				<p:outputLabel value="#{clientController.adresse.ville}" />
-				
+				<p:outputLabel value="#{clientController.ville}" />
+
 			</p:panelGrid>
+			<p>
+				<p:commandButton action="ouvrirUnCompte.xhtml"
+					value="Ouvrir un compte" />
+			</p>
+
 		</h:form>
 
 	</ui:define>

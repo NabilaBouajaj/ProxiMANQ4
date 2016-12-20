@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class ClientController implements Serializable {
+	private static final long serialVersionUID = 8301632515717827415L;
 	String nom;
 	String prenom;
 	String email;
@@ -97,15 +98,11 @@ public class ClientController implements Serializable {
 		Client client = new Client(nom, prenom, email, adresse);
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
-		System.out.println("après session");
-		// client.setConseiller(conseiller);
+
 		conseiller.getListClients().add(client);
-		// client.setConseiller(conseiller);
-		System.out.println("après set");
-		// conseillerService.persist(conseiller);
-		// System.out.println("après création cons");
+
 		clientService.createClient(client);
-		System.out.println("à la fin");
+
 		return "accueil.xhtml";
 
 	}
@@ -116,9 +113,13 @@ public class ClientController implements Serializable {
 
 	}
 
-	public void detailsClient(int idclient) throws Exception {
-		Client client = clientService.findById(idclient);
-
+	public String detailsClient(Client client) throws Exception {
+		System.out.println(client);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.setAttribute("Client", client);
+		setNom(client.getNom());
+		setPrenom(client.getPrenom());
+		return "detailsClient.xhtml";
 	}
 
 }
