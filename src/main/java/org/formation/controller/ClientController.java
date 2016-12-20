@@ -10,6 +10,7 @@ import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.formation.service.ClientService;
 import org.formation.service.ConseillerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -84,14 +85,20 @@ public class ClientController implements Serializable {
 		this.codePostal = codePostal;
 	}
 
-	// @Autowired
-	ClientService clientService = new ClientService();
+	@Autowired
+	ClientService clientService;
+	@Autowired
+	ConseillerService conseillerService;
 
 	public String creerClient() throws Exception {
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/applicationContext-db-mysql.xml");
-		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
-		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+		// ApplicationContext applicationContext = new
+		// ClassPathXmlApplicationContext(
+		// "/META-INF/spring/applicationContext-db-mysql.xml");
+		// ClientService clientService =
+		// applicationContext.getBean("clientService", ClientService.class);
+		// ConseillerService conseillerService =
+		// applicationContext.getBean("conseillerService",
+		// ConseillerService.class);
 
 		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
 		Client client = new Client(nom, prenom, email, adresse);
@@ -100,11 +107,12 @@ public class ClientController implements Serializable {
 		System.out.println(conseiller);
 		conseiller.getListClients().add(client);
 		System.out.println("creer client");
-		client.setConseiller(conseiller);
+		System.out.println(conseiller);
+//		client.setConseiller(conseiller);
 		System.out.println(client);
 		System.out.println(conseiller);
 
-		clientService.createClient(client);
+		// clientService.createClient(client);
 		conseillerService.merge(conseiller);
 		// clientService.merge(client);
 		return "accueil.xhtml";

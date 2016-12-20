@@ -92,27 +92,28 @@ public class BankController implements Serializable {
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-		List<Conseiller> listCons = conseillerService.findAll();
-		System.out.println(listCons);
-		System.out.println("Après liste");
-		Conseiller conseiller = new Conseiller();
+		// List<Conseiller> listCons = conseillerService.findAll();
+		// System.out.println(listCons);
+		// System.out.println("Après liste");
+		// Conseiller conseiller = new Conseiller();
 		// for (Conseiller conseiller2 : listCons) {
 		// if (conseiller2.getLogin().equals("jesus")) {
 		// conseiller = conseiller2;
 		// System.out.println(conseiller);
 		// }
 		// }
-		System.out.println("Avant Boucle Conseiller");
-		for (Conseiller conseiller2 : listCons) {
-			if (conseiller2.getId() == 62) {
-				System.out.println("trouvé : " + conseiller2);
-				conseiller = conseiller2;
-			}
-		}
+		// System.out.println("Avant Boucle Conseiller");
+		// for (Conseiller conseiller2 : listCons) {
+		// if (conseiller2.getId() == 62) {
+		// System.out.println("trouvé : " + conseiller2);
+		// conseiller = conseiller2;
+		// }
+		// }
 		System.out.println("Avant find");
-		// Conseiller conseiller = conseillerService.findById(62);
+		Conseiller conseiller = conseillerService.findById(62L);
 		System.out.println(conseiller);
 		System.out.println("Après find");
+		System.out.println(conseiller.getNom());
 		session.setAttribute("Conseiller", conseiller);
 
 		return "accueil.xhtml";
@@ -140,7 +141,6 @@ public class BankController implements Serializable {
 
 		// listclient.add(client);
 		return cons.getListClients();
-
 
 	}
 
