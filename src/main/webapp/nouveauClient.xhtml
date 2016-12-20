@@ -45,8 +45,8 @@
 				<p:outputLabel for="numero" value="Numero" />
 				<p:inputText id="numero" value="#{clientController.numero}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="Uniquement des chiffres">
-					<f:validateRegex pattern="^([0-9])" />
+					validatorMessage="Uniquement des chiffres, minimum 1">
+					<f:validateRegex pattern="^([0-9]{1,})" />
 				</p:inputText>
 				<p:message for="numero" />
 
@@ -54,8 +54,8 @@
 				<p:outputLabel for="rue" value="Rue" />
 				<p:inputText id="rue" value="#{clientController.rue}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="Uniquement des lettres">
-					<f:validateRegex pattern="^([a-zA-Z])" />
+					validatorMessage="Uniquement des lettres minimum 1">
+					<f:validateRegex pattern="^([a-zA-Z]{1,})" />
 				</p:inputText>
 				<p:message for="rue" />
 
@@ -63,7 +63,7 @@
 				<p:outputLabel for="codepostal" value="Code postal" />
 				<p:inputText id="codepostal" value="#{clientController.codePostal}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="Uniquement en chiffre, miniumum 5">
+					validatorMessage="Uniquement en 5 chiffres">
 					<f:validateRegex pattern="^([0-9]{5})" />
 				</p:inputText>
 				<p:message for="codepostal" />
