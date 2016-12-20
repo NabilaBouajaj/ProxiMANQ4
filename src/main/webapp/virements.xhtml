@@ -13,75 +13,94 @@
 
 		<h1>Virements</h1>
 
+		<div class="well well-lg">
+			<p:dataTable value="#{bankController.obtenirListeClients()}" var="c">
 
-			<form class="virement" action="#{bankController.virement}">
-				<label for="idCompteExp" class="sr-only">ID Compte
-					Expéditeur</label>
-				<div class="input-group">
-					<input type="text" id="idCompteExp" name="idCompteExp"
-						class="form-control" placeholder="ID Compte expéditeur"
-						required="true" />
-				</div>
+				<p:column headerText="Nom">
+					<h:form>
+
+						<h:commandLink value="#{c.nom}"
+							action="#{clientController.detailsClient(c.id)}">
+						</h:commandLink>
+					</h:form>
+				</p:column>
+
+				<p:column headerText="Prénom">
+					<h:form>
+						<h:commandLink value="#{c.prenom}"
+							action="#{clientController.detailsClient(c.id)}">
+						</h:commandLink>
+					</h:form>
+				</p:column>
+				<p:column headerText="Id compte courant">
+					<h:form>
+						<h:commandLink value="#{c.listCompte.compteCourant.id}"
+							action="#{clientService.detailsClient(c.id)}">
+						</h:commandLink>
+					</h:form>
+				</p:column>
+
+				<p:column headerText="Solde compte courant">
+					<h:form>
+						<h:commandLink value="#{c.listCompte.compteCourant.montant}"
+							action="#{clientService.detailsClient(c.id)}">
+						</h:commandLink>
+					</h:form>
+				</p:column>
+
+				<p:column headerText="Id compte epargne">
+					<h:form>
+
+						<h:commandLink value="#{c.listCompte.compteEpargne.id}"
+							action="#{clientService.detailsClient(c.id)}">
+						</h:commandLink>
+					</h:form>
+				</p:column>
+				<p:column headerText="solde compte epargne">
+					<h:form>
+						<h:commandLink value="#{c.listCompte.compteEpargne.montany}"
+							action="#{clientService.detailsClient(c.id)}">
+
+						</h:commandLink>
+					</h:form>
+				</p:column>
+
 				
-				<br /> <label for="idCompteDes" class="sr-only">ID Compte
-					Déstinataire</label>
-				<div class="input-group">
-					<input type="text" id="idCompteDes" name="idCompteDes"
-						class="form-control" placeholder="ID Compte destinataire"
-						required="true" />
-				</div>
-				<br /> <label class="sr-only" for="exampleInputAmount">Montant
-				</label>
 
-				<div class="input-group">
+			</p:dataTable>
+		</div>
 
-					<input type="text" name="montant" class="form-control"
-						id="exampleInputAmount" placeholder="Montant" />
+<div class="well well-lg">
+<h:outputLabel value="Choisir le compte expediteur: *" for="compteEx" />
+<h:selectOneMenu id="compteEx" value="${bankController.listClient}">
+</h:selectOneMenu>
+</div>
+<div class="well well-lg">
+<h:outputLabel value="Choisir le compte beneficiaire: *" for="compteBe" />
+<h:selectOneMenu id="compteBe" value="${bankController.listClient}">
+</h:selectOneMenu>
+</div>
 
-				</div>
+<div class="well well-lg">
 
-				<button type="submit" class="btn btn-primary">Transfer cash</button>
+<p:outputLabel for="montant" value="Montant" />
+				<p:inputText id="montant" value="#{virementController.montant}"
+					validatorMessage="Au moins un chiffre et pas de lettre">
+					<f:validateRegex pattern="^([0-9]{1})" />
+				</p:inputText>
+				<p:message for="numero" />
+				
+<p class="virement">
+				<p:commandButton action="#{virementController.virement()}"
+					value="Effectuer le virement" validateClient="true" />
+			</p>
+				
 
-				<div>
-					<input class="form-control" type="hidden" name="emetteur"
-						value="${emetteur}" />
-				</div>
-				<div>
-					<input class="form-control" type="hidden" name="expediteur"
-						value="${expediteur}" />
-				</div>
-			</form>
-<div class="container">
-				<div class="row col-md-6 col-md-offset-2 custyle">
-					<table class="table table-striped custab">
-						<thead>
+			
 
-							<tr>
-								<th>ID</th>
-								<th>Nom</th>
-								<th>Prenom</th>
-								<th>ID compte courant</th>
-								<th>Solde</th>
-								<th>ID compte epargne</th>
-								<th>Solde</th>
-
-							</tr>
-						</thead>
-						<h:dataTable value="#{clientController.client}" var="client">
-							<tr>
-								<td>#{client.id}</td>
-								<td>#{client.nom}</td>
-								<td>#{client.prenom}</td>
-								<td>#{courant.idCompte}</td>
-								<td>#{courant.montant}</td>
-								<td>#{epargne.idCompte}</td>
-								<td>#{epargne.montant}</td>
-
-							</tr>
-						</h:dataTable>
-					</table>
-				</div>
-			</div>
+</div>
+    
+	
 
 	</ui:define>
 </ui:composition>

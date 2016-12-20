@@ -1,6 +1,9 @@
 package org.formation.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +22,13 @@ public class Client {
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
+	
+	@OneToOne(cascade={CascadeType.ALL})
+	CompteCourant compteCourant;
+	
+	@OneToOne(cascade={CascadeType.ALL})
+	CompteEpargne compteEpargne;
+	
 
 	public String getEmail() {
 		return email;
@@ -67,17 +77,40 @@ public class Client {
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
+	
+	
+
+	
+
+	public CompteCourant getCompteCourant() {
+		return compteCourant;
+	}
+
+	public void setCompteCourant(CompteCourant compteCourant) {
+		this.compteCourant = compteCourant;
+	}
+
+	public CompteEpargne getCompteEpargne() {
+		return compteEpargne;
+	}
+
+	public void setCompteEpargne(CompteEpargne compteEpargne) {
+		this.compteEpargne = compteEpargne;
+	}
 
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
 
 	public Client(String nom, String prenom, String email, Adresse adresse) {
+		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
 
 	}
+
+
 
 }

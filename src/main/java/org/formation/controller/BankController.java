@@ -22,14 +22,14 @@ public class BankController {
 	Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu", "dieu");
 	String login;
 	String password;
-	List<Client> listclient = new ArrayList<Client>();
+	List<Client> listClient = new ArrayList<Client>();
 
-	public List<Client> getListclient() {
-		return listclient;
+	public List<Client> getListClient() {
+		return listClient;
 	}
 
-	public void setListclient(List<Client> listclient) {
-		this.listclient = listclient;
+	public void setListclient(List<Client> listClient) {
+		this.listClient = listClient;
 	}
 
 	public String getLogin() {
@@ -97,10 +97,10 @@ public class BankController {
 		conseiller.getListClients().add(client);
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		session.setAttribute("ConseillerConnecté", conseiller);
-		listclient = conseiller.getListClients();
+		listClient = conseiller.getListClients();
 
 		// listclient.add(client);
-		return listclient;
+		return listClient;
 
 	}
 

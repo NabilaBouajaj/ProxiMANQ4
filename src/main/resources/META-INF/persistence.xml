@@ -12,7 +12,10 @@
 		<class>org.formation.model.Adresse</class>
 		<class>org.formation.model.Gerant</class>
 		<class>org.formation.model.Compte</class>
+		<class>org.formation.model.CompteEpargne</class>
+		<class>org.formation.model.CompteCourant</class>
 		<class>org.formation.model.Banquier</class>
+		
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>

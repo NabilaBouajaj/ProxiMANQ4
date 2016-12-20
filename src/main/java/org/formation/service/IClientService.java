@@ -11,7 +11,7 @@ public void persist(Client c) throws Exception;
 
 	public void remove(Client c) throws Exception;
 	
-	public Client findById(int id) throws Exception;
+	public Client findById(long id) throws Exception;
 	
 	public List<Client> findAll() throws Exception;
 	

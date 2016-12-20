@@ -30,7 +30,7 @@ public class CompteService {
 		compteDao.remove(id);
 	}
 
-	public Compte findById(int id) throws Exception {
+	public Compte findById(long id) throws Exception {
 		return compteDao.findById(id);
 	}
 
