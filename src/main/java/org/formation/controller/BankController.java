@@ -1,5 +1,6 @@
 package org.formation.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +13,15 @@ import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.formation.service.ClientService;
 import org.formation.service.ConseillerService;
-
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
 
 @Controller
-public class BankController {
+public class BankController implements Serializable {
+	private static final long serialVersionUID = 3457285546581409379L;
 	// Banquier banq = new Banquier();
-	Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu", "dieu");
 	String login;
 	String password;
 	List<Client> listClient = new ArrayList<Client>();
@@ -48,11 +50,7 @@ public class BankController {
 		this.password = password;
 	}
 
-	// @Autowired
-	ConseillerService conseillerService = new ConseillerService();
-	// @Autowired
-	ClientService clientService = new ClientService();
-
+	// Pour l'Authentification
 	// public String seConnecter(Model model) throws Exception {
 	// int varpers = 0;
 	//
@@ -91,16 +89,29 @@ public class BankController {
 	// }
 	// }
 
-	public List<Client> obtenirListeClients() {
-		Client client = new Client("Christ", "Jesus", "JesusChrist@paradis.amen",
-				new Adresse("7", "rue du paradis", "Ciel", "77777"));
-		conseiller.getListClients().add(client);
+
+	public void creerCons() throws Exception {
+
+		Conseiller conseiller = new Conseiller("Dieu3", "Notre père", "dieu", "dieu");
+
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-		session.setAttribute("ConseillerConnecté", conseiller);
-		listClient = conseiller.getListClients();
+
+		session.setAttribute("Conseiller", conseiller);
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+		conseillerService.persist(conseiller);
+
+	}
+
+	public List<Client> obtenirListeClients() throws Exception {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		Conseiller cons = (Conseiller) session.getAttribute("Conseiller");
+		listClient = cons.getListClients();
 
 		// listclient.add(client);
-		return listClient;
+		return cons.getListClients();
+
 
 	}
 

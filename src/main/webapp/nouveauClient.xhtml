@@ -12,12 +12,13 @@
 
 		<h1>Création de client</h1>
 		<h:form>
+
 			<p:panelGrid columns="3">
 				<p:outputLabel for="nom" value="Nom" />
 				<p:inputText id="nom" value="#{clientController.nom}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="Au moins 2 lettres et pas de chiffre(s)">
-					<f:validateRegex pattern="^([a-zA-Z]){2}" />
+					validatorMessage="Uniquement des lettres, minumum 2">
+					<f:validateRegex pattern="^([a-zA-Z]){2,}" />
 				</p:inputText>
 				<p:message for="nom" />
 
@@ -25,8 +26,8 @@
 				<p:outputLabel for="prenom" value="Prenom" />
 				<p:inputText id="prenom" value="#{clientController.prenom}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="Au moins 2 lettres et pas de chiffre(s)">
-					<f:validateRegex pattern="^([a-zA-Z]){2}" />
+					validatorMessage="Uniquement des lettres, minumum 2">
+					<f:validateRegex pattern="^([a-zA-Z]){2,}" />
 				</p:inputText>
 				<p:message for="prenom" />
 
@@ -43,8 +44,9 @@
 
 				<p:outputLabel for="numero" value="Numero" />
 				<p:inputText id="numero" value="#{clientController.numero}"
-					validatorMessage="Au moins un chiffre et pas de lettre">
-					<f:validateRegex pattern="^([0-9]{1})" />
+					required="true" requiredMessage="Saisie obligatoire"
+					validatorMessage="Uniquement des chiffres, minimum 1">
+					<f:validateRegex pattern="^([0-9]{1,})" />
 				</p:inputText>
 				<p:message for="numero" />
 
@@ -52,8 +54,8 @@
 				<p:outputLabel for="rue" value="Rue" />
 				<p:inputText id="rue" value="#{clientController.rue}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="Que des lettres...">
-					<f:validateRegex pattern="^([a-zA-Z])" />
+					validatorMessage="Uniquement des lettres minimum 1">
+					<f:validateRegex pattern="^([a-zA-Z]{1,})" />
 				</p:inputText>
 				<p:message for="rue" />
 
@@ -61,7 +63,7 @@
 				<p:outputLabel for="codepostal" value="Code postal" />
 				<p:inputText id="codepostal" value="#{clientController.codePostal}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="En chiffre uniquement, miniumum 5">
+					validatorMessage="Uniquement en 5 chiffres">
 					<f:validateRegex pattern="^([0-9]{5})" />
 				</p:inputText>
 				<p:message for="codepostal" />
@@ -70,8 +72,8 @@
 				<p:outputLabel for="ville" value="Ville" />
 				<p:inputText id="ville" value="#{clientController.ville}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="En lettre, miniumum 1">
-					<f:validateRegex pattern="^([a-zA-Z]{1})" />
+					validatorMessage="Uniquement des lettres, miniumum 1">
+					<f:validateRegex pattern="^([a-zA-Z]{1,})" />
 				</p:inputText>
 				<p:message for=" ville" />
 			</p:panelGrid>

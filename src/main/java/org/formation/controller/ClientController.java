@@ -1,15 +1,22 @@
 package org.formation.controller;
 
+import java.io.Serializable;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
 import org.formation.model.Adresse;
 import org.formation.model.Client;
+import org.formation.model.Conseiller;
 import org.formation.service.ClientService;
-
+import org.formation.service.ConseillerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ClientController {
+public class ClientController implements Serializable {
+	private static final long serialVersionUID = 8301632515717827415L;
 	String nom;
 	String prenom;
 	String email;
@@ -17,6 +24,9 @@ public class ClientController {
 	String ville;
 	String numero;
 	String codePostal;
+
+	// Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu",
+	// "dieu");
 
 	public String getEmail() {
 		return email;
@@ -82,11 +92,15 @@ public class ClientController {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
-		System.out.println("creerClient");
-
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
 
 		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
 		Client client = new Client(nom, prenom, email, adresse);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
+
+		conseiller.getListClients().add(client);
+
 		clientService.createClient(client);
 
 		return "accueil.xhtml";
@@ -99,9 +113,13 @@ public class ClientController {
 
 	}
 
-	public void detailsClient(int idclient) throws Exception {
-		Client client = clientService.findById(idclient);
-
+	public String detailsClient(Client client) throws Exception {
+		System.out.println(client);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.setAttribute("Client", client);
+		setNom(client.getNom());
+		setPrenom(client.getPrenom());
+		return "detailsClient.xhtml";
 	}
 
 }

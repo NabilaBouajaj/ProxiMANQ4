@@ -72,23 +72,22 @@
 
 <div class="well well-lg">
 <h:outputLabel value="Choisir le compte expediteur: *" for="compteEx" />
-<h:selectOneMenu id="compteEx" value="${bankController.listClient}">
+<h:selectOneMenu id="compteEx" value="${bankController.obtenirListeClients()}">
 </h:selectOneMenu>
 </div>
 <div class="well well-lg">
 <h:outputLabel value="Choisir le compte beneficiaire: *" for="compteBe" />
-<h:selectOneMenu id="compteBe" value="${bankController.listClient}">
+<h:selectOneMenu id="compteBe" value="${bankController.obtenirListeClients()}">
 </h:selectOneMenu>
 </div>
 
 <div class="well well-lg">
 
 <p:outputLabel for="montant" value="Montant" />
-				<p:inputText id="montant" value="#{virementController.montant}"
-					validatorMessage="Au moins un chiffre et pas de lettre">
-					<f:validateRegex pattern="^([0-9]{1})" />
+				<p:inputText id="montant" value="#{virementController.montant}">
+			
 				</p:inputText>
-				<p:message for="numero" />
+			
 				
 <p class="virement">
 				<p:commandButton action="#{virementController.virement()}"

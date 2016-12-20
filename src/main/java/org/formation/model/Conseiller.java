@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.springframework.stereotype.Component;
-
 @Entity
 public class Conseiller extends Banquier {
 

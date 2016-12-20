@@ -6,7 +6,9 @@ import org.formation.dao.IVirementDao;
 import org.formation.model.Compte;
 import org.formation.model.Virement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class VirementService {
 	
 	@Autowired

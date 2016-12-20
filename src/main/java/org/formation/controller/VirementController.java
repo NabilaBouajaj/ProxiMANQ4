@@ -3,12 +3,14 @@ package org.formation.controller;
 import java.text.DateFormat;
 import java.util.Date;
 
-import org.formation.dao.IVirementDao;
+
 import org.formation.model.Client;
 import org.formation.model.Virement;
 import org.formation.service.VirementService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class VirementController {
 	
 	private Virement virement;
@@ -63,11 +65,11 @@ public class VirementController {
 		this.compteBeId = compteBeId;
 	}
 
-	public double getMountant() {
+	public double getMontant() {
 		return montant;
 	}
 
-	public void setMountant(double montant) {
+	public void setMontant(double montant) {
 		this.montant = montant;
 	}
 
@@ -84,6 +86,19 @@ public class VirementController {
 		super();
 	}
 	
+	
+	public VirementController(Virement virement, Client clientEx, Client clientBe, long compteExId, long compteBeId,
+			double montant, VirementService virementService) {
+		super();
+		this.virement = virement;
+		this.clientEx = clientEx;
+		this.clientBe = clientBe;
+		this.compteExId = compteExId;
+		this.compteBeId = compteBeId;
+		this.montant = montant;
+		this.virementService = virementService;
+	}
+
 	// methode qui verifie si le compte beneficiaire et expediteur existe
 	public boolean compteCourantBeExist(){
 		if(clientBe.getCompteCourant() != null){
