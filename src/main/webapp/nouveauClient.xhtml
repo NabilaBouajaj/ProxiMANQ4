@@ -63,7 +63,7 @@
 				<p:outputLabel for="codepostal" value="Code postal" />
 				<p:inputText id="codepostal" value="#{clientController.codePostal}"
 					required="true" requiredMessage="Saisie obligatoire"
-					validatorMessage="Uniquement en chiffre, miniumum 5">
+					validatorMessage="Uniquement en 5 chiffres">
 					<f:validateRegex pattern="^([0-9]{5})" />
 				</p:inputText>
 				<p:message for="codepostal" />
