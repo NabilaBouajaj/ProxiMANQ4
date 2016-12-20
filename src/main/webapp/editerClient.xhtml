@@ -11,7 +11,85 @@
 	<ui:define name="content">
 
 		<h1>Edition de client</h1>
+		<h:form>
 
+			<p:panelGrid columns="3">
+				<p:outputLabel for="nom" value="Nom" />
+				<p:inputText id="nom" value="#{clientController.client.nom}"
+					required="true" requiredMessage="Saisie obligatoire"
+					validatorMessage="Au moins 2 lettres et pas de chiffre(s)"
+					placeholder="#{clientController.client.nom}">
+					<f:validateRegex pattern="^([a-zA-Z]){2}" />
+				</p:inputText>
+				<p:message for="nom" />
+
+
+				<p:outputLabel for="prenom" value="Prenom" />
+				<p:inputText id="prenom" value="#{clientController.client.prenom}"
+					required="true" requiredMessage="Saisie obligatoire"
+					validatorMessage="Au moins 2 lettres et pas de chiffre(s)"
+					placeholder="#{clientController.client.prenom}">
+					<f:validateRegex pattern="^([a-zA-Z]){2}" />
+				</p:inputText>
+				<p:message for="prenom" />
+
+
+				<p:outputLabel for="email" value="Email" />
+				<p:inputText id="email" value="#{clientController.client.email}"
+					required="true" requiredMessage="Saisie obligatoire"
+					validatorMessage="Sous la forme xx@xx.xx"
+					placeholder="#{clientController.client.email}">
+					<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</p:inputText>
+				<p:message for="email" />
+
+
+				<p:outputLabel for="numero" value="Numero" />
+				<p:inputText id="numero" value="#{clientController.client.numero}"
+					validatorMessage="Au moins un chiffre et pas de lettre"
+					placeholder="#{clientController.client.numero}">
+					<f:validateRegex pattern="^([0-9]{1})" />
+				</p:inputText>
+				<p:message for="numero" />
+
+
+				<p:outputLabel for="rue" value="Rue" />
+				<p:inputText id="rue" value="#{clientController.client.rue}"
+					required="true" requiredMessage="Saisie obligatoire"
+					validatorMessage="Que des lettres..."
+					placeholder="#{clientController.client.rue}">
+					<f:validateRegex pattern="^([a-zA-Z])" />
+				</p:inputText>
+				<p:message for="rue" />
+
+
+				<p:outputLabel for="codepostal" value="Code postal" />
+				<p:inputText id="codepostal"
+					value="#{clientController.client.codePostal}" required="true"
+					requiredMessage="Saisie obligatoire"
+					validatorMessage="En chiffre uniquement, miniumum 5"
+					placeholder="#{clientController.client.codePostal}">
+					<f:validateRegex pattern="^([0-9]{5})" />
+				</p:inputText>
+				<p:message for="codepostal" />
+
+
+				<p:outputLabel for="ville" value="Ville" />
+				<p:inputText id="ville" value="#{clientController.client.ville}"
+					required="true" requiredMessage="Saisie obligatoire"
+					validatorMessage="En lettre, miniumum 1"
+					placeholder="#{clientController.client.ville}">
+					<f:validateRegex pattern="^([a-zA-Z]{1})" />
+				</p:inputText>
+				<p:message for=" ville" />
+			</p:panelGrid>
+
+			<p class="creer">
+				<p:commandButton action="#{clientController.editerClient()}"
+					value="Editer le client" validateClient="true" />
+			</p>
+		</h:form>
 
 
 	</ui:define>
