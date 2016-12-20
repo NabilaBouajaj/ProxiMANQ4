@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -15,10 +14,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Conseiller extends Banquier {
 
-	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "conseiller")
+	@OneToMany(mappedBy = "conseiller", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	private List<Client> listClients = new ArrayList<Client>();
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "gerant_id")
 	private Gerant gerant;
 
@@ -38,6 +37,11 @@ public class Conseiller extends Banquier {
 
 	public Conseiller() {
 
+	}
+
+	@Override
+	public String toString() {
+		return "Conseiller [listClients=" + listClients + ", gerant=" + gerant + "]";
 	}
 
 }

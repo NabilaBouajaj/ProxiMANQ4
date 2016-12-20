@@ -33,14 +33,14 @@ Vous avez en gestion :
 					<p:column headerText="Prénom">
 						<h:form>
 							<h:commandLink value="#{c.prenom}"
-								action="#{clientController.detailsClient(c.id)}">
+								action="#{clientController.detailsClient(c)}">
 							</h:commandLink>
 						</h:form>
 					</p:column>
 					<p:column headerText="Numéro">
 						<h:form>
 							<h:commandLink value="#{c.adresse.numero}"
-								action="#{clientService.detailsClient(c.id)}">
+								action="#{clientService.detailsClient(c)}">
 							</h:commandLink>
 						</h:form>
 					</p:column>
@@ -48,7 +48,7 @@ Vous avez en gestion :
 					<p:column headerText="Rue">
 						<h:form>
 							<h:commandLink value="#{c.adresse.rue}"
-								action="#{clientService.detailsClient(c.id)}">
+								action="#{clientService.detailsClient(c)}">
 							</h:commandLink>
 						</h:form>
 					</p:column>
@@ -57,14 +57,14 @@ Vous avez en gestion :
 						<h:form>
 
 							<h:commandLink value="#{c.adresse.codePostal}"
-								action="#{clientService.detailsClient(c.id)}">
+								action="#{clientService.detailsClient(c)}">
 							</h:commandLink>
 						</h:form>
 					</p:column>
 					<p:column headerText="Ville">
 						<h:form>
 							<h:commandLink value="#{c.adresse.ville}"
-								action="#{clientService.detailsClient(c.id)}">
+								action="#{clientService.detailsClient(c)}">
 
 							</h:commandLink>
 						</h:form>
@@ -73,7 +73,7 @@ Vous avez en gestion :
 					<p:column headerText="Email">
 						<h:form>
 							<h:commandLink value="#{c.email}"
-								action="#{clientController.detailsClient(c.id)}">
+								action="#{clientController.detailsClient(c)}">
 							</h:commandLink>
 						</h:form>
 					</p:column>

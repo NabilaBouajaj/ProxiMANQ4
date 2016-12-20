@@ -1,6 +1,5 @@
 package org.formation.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +18,15 @@ public class Client {
 	@Embedded
 	Adresse adresse;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
-	
-	@OneToOne(cascade={CascadeType.ALL})
+
+	@OneToOne(cascade = { CascadeType.ALL })
 	CompteCourant compteCourant;
-	
-	@OneToOne(cascade={CascadeType.ALL})
+
+	@OneToOne(cascade = { CascadeType.ALL })
 	CompteEpargne compteEpargne;
-	
 
 	public String getEmail() {
 		return email;
@@ -77,10 +75,6 @@ public class Client {
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
-	
-	
-
-	
 
 	public CompteCourant getCompteCourant() {
 		return compteCourant;
@@ -111,6 +105,10 @@ public class Client {
 
 	}
 
-
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", adresse=" + adresse
+				+ ", conseiller=" + conseiller + "]";
+	}
 
 }
