@@ -17,7 +17,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
-
 @Controller
 public class BankController implements Serializable {
 	private static final long serialVersionUID = 3457285546581409379L;
@@ -88,11 +87,41 @@ public class BankController implements Serializable {
 	// return "home.xhtml";
 	// }
 	// }
+	public String chargerCons() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		List<Conseiller> listCons = conseillerService.findAll();
+		System.out.println(listCons);
+		System.out.println("Après liste");
+		Conseiller conseiller = new Conseiller();
+		// for (Conseiller conseiller2 : listCons) {
+		// if (conseiller2.getLogin().equals("jesus")) {
+		// conseiller = conseiller2;
+		// System.out.println(conseiller);
+		// }
+		// }
+		System.out.println("Avant Boucle Conseiller");
+		for (Conseiller conseiller2 : listCons) {
+			if (conseiller2.getId() == 62) {
+				System.out.println("trouvé : " + conseiller2);
+				conseiller = conseiller2;
+			}
+		}
+		System.out.println("Avant find");
+		// Conseiller conseiller = conseillerService.findById(62);
+		System.out.println(conseiller);
+		System.out.println("Après find");
+		session.setAttribute("Conseiller", conseiller);
 
+		return "accueil.xhtml";
+
+	}
 
 	public void creerCons() throws Exception {
 
-		Conseiller conseiller = new Conseiller("Dieu3", "Notre père", "dieu", "dieu");
+		Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu", "dieu");
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");

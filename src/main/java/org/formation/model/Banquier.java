@@ -64,6 +64,12 @@ public class Banquier{
 	public Banquier() {
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Banquier [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", motDePasse="
+				+ motDePasse + "]";
+	}
 	
 	
 

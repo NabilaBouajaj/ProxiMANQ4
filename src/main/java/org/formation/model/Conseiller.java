@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Conseiller extends Banquier {
 
-	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "conseiller")
+	@OneToMany(mappedBy = "conseiller")
 	private List<Client> listClients = new ArrayList<Client>();
 
 	@ManyToOne(cascade = { CascadeType.PERSIST })
@@ -38,6 +38,11 @@ public class Conseiller extends Banquier {
 
 	public Conseiller() {
 
+	}
+
+	@Override
+	public String toString() {
+		return "Conseiller [listClients=" + listClients + ", gerant=" + gerant + "]";
 	}
 
 }

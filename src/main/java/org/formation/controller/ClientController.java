@@ -100,9 +100,13 @@ public class ClientController implements Serializable {
 		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
 
 		conseiller.getListClients().add(client);
+		client.setConseiller(conseiller);
+		System.out.println(client);
+		System.out.println(conseiller);
 
 		clientService.createClient(client);
-
+		conseillerService.merge(conseiller);
+		//clientService.merge(client);
 		return "accueil.xhtml";
 
 	}
