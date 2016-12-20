@@ -88,7 +88,6 @@ public class ClientController implements Serializable {
 	ClientService clientService = new ClientService();
 
 	public String creerClient() throws Exception {
-
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
@@ -98,15 +97,16 @@ public class ClientController implements Serializable {
 		Client client = new Client(nom, prenom, email, adresse);
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
-
+		System.out.println(conseiller);
 		conseiller.getListClients().add(client);
+		System.out.println("creer client");
 		client.setConseiller(conseiller);
 		System.out.println(client);
 		System.out.println(conseiller);
 
 		clientService.createClient(client);
 		conseillerService.merge(conseiller);
-		//clientService.merge(client);
+		// clientService.merge(client);
 		return "accueil.xhtml";
 
 	}

@@ -23,14 +23,14 @@ public class BankController implements Serializable {
 	// Banquier banq = new Banquier();
 	String login;
 	String password;
-	List<Client> listclient = new ArrayList<Client>();
+	List<Client> listClient = new ArrayList<Client>();
 
-	public List<Client> getListclient() {
-		return listclient;
+	public List<Client> getListClient() {
+		return listClient;
 	}
 
-	public void setListclient(List<Client> listclient) {
-		this.listclient = listclient;
+	public void setListclient(List<Client> listClient) {
+		this.listClient = listClient;
 	}
 
 	public String getLogin() {
@@ -126,6 +126,7 @@ public class BankController implements Serializable {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+
 		session.setAttribute("Conseiller", conseiller);
 		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
 		conseillerService.persist(conseiller);
@@ -135,10 +136,11 @@ public class BankController implements Serializable {
 	public List<Client> obtenirListeClients() throws Exception {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller cons = (Conseiller) session.getAttribute("Conseiller");
-		listclient = cons.getListClients();
+		listClient = cons.getListClients();
 
 		// listclient.add(client);
 		return cons.getListClients();
+
 
 	}
 
