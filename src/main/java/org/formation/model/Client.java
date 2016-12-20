@@ -1,14 +1,13 @@
 package org.formation.model;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+
 import javax.persistence.*;
 
 @Entity
 public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	private String nom;
 	private String prenom;
 
@@ -37,11 +36,11 @@ public class Client {
 		this.adresse = adresse;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

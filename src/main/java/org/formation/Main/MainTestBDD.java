@@ -23,7 +23,7 @@ public class MainTestBDD {
 		Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu", "dieu");
 		
 		Client client = new Client("Christ", "Jesus", "JesusChrist@paradis.amen",
-				new Adresse(7, "rue du paradis", "Ciel", "77777"));
+				new Adresse("7", "rue du paradis", "Ciel", "77777"));
 		
 		conseillerService.persist(conseiller);
 		clientService.merge(client);

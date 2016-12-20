@@ -8,16 +8,15 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import org.formation.model.Adresse;
-import org.formation.model.Banquier;
+
 import org.formation.model.Client;
 import org.formation.model.Conseiller;
 import org.formation.service.ClientService;
 import org.formation.service.ConseillerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 
 @Controller
 public class BankController implements Serializable {
@@ -89,13 +88,13 @@ public class BankController implements Serializable {
 	// }
 	// }
 
+
 	public void creerCons() throws Exception {
 
 		Conseiller conseiller = new Conseiller("Dieu3", "Notre père", "dieu", "dieu");
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
-
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		session.setAttribute("Conseiller", conseiller);
 		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);

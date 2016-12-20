@@ -12,49 +12,61 @@
 
 		<h1>Création de client</h1>
 		<h:form>
-			<p:messages autoUpdate="true" />
 			<p:panelGrid columns="2">
-				<p:outputLabel value="Nom" />
-				<p:inputText value="#{clientController.nom}" required="true"
-					requiredMessage="Saisie obligatoire"
-					validatorMessage="Au moins 2 lettres">
-					<!-- 					<f:validateRegex pattern="(^([a-z][A-Z]){2,})" /> -->
+				<p:outputLabel for="nom" value="Nom" />
+				<p:inputText id="nom" label="Nom" value="#{clientController.nom}">
 				</p:inputText>
 
 
-				<p:outputLabel value="Prenom" />
-				<p:inputText value="#{clientController.prenom}" required="true"
-					requiredMessage="Saisie obligatoire"
-					validatorMessage="Au moins 2 lettres">
-					<!-- 					<f:validateRegex pattern="(^([a-z][A-Z]){2,})" /> -->
+
+				<p:outputLabel for="prenom" value="Prenom" />
+				<p:inputText id="prenom" label="Prenom"
+					value="#{clientController.prenom}">
 				</p:inputText>
 
 
-				<p:outputLabel value="Email" />
-				<p:inputText value="#{clientController.email}" required="true"
-					requiredMessage="Saisie obligatoire"
-					validatorMessage="Sous la forme xx@xx.xx">
-					<f:validateRegex
-						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+				<p:outputLabel for="email" value="Email" />
+				<p:inputText id="email" label="Email"
+					value="#{clientController.email}">
 				</p:inputText>
 
 
-				<p:outputLabel value="Numero" />
-				<p:inputText value="#{clientController.numero}" />
-				<p:outputLabel value="Rue" />
-				<p:inputText value="#{clientController.rue}" />
-				<p:outputLabel value="Code postal" />
-				<p:inputText value="#{clientController.codePostal}" />
-				<p:outputLabel value="Ville" />
-				<p:inputText value="#{clientController.ville}" />
+
+				<p:outputLabel for="numero" value="Numero" />
+				<p:inputText id="numero" label="Numero"
+					value="#{clientController.numero}">
+				</p:inputText>
+
+
+
+				<p:outputLabel for="rue" value="Rue" />
+				<p:inputText id="rue" label="Rue" value="#{clientController.rue}">
+				</p:inputText>
+
+
+
+				<p:outputLabel for="codepostal" value="Code postal" />
+				<p:inputText id="codepostal" label="Code postal"
+					value="#{clientController.codePostal}">
+				</p:inputText>
+
+
+
+				<p:outputLabel for="ville" value="Ville" />
+				<p:inputText id="ville" label="Ville"
+					value="#{clientController.ville}">
+				</p:inputText>
+
 			</p:panelGrid>
 
-			<p class="creer">
+			<p>
 				<p:commandButton action="#{clientController.creerClient()}"
-					value="Creer le client" validateClient="true" />
+					value="Creer le client" />
 			</p>
 		</h:form>
 
+* : Champs requis
 
 	</ui:define>
 </ui:composition>

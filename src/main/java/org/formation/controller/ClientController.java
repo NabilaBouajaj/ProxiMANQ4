@@ -21,7 +21,7 @@ public class ClientController implements Serializable {
 	String email;
 	String rue;
 	String ville;
-	int numero;
+	String numero;
 	String codePostal;
 
 	// Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu",
@@ -67,11 +67,11 @@ public class ClientController implements Serializable {
 		this.ville = ville;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
@@ -87,6 +87,7 @@ public class ClientController implements Serializable {
 	ClientService clientService = new ClientService();
 
 	public String creerClient() throws Exception {
+
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
@@ -97,7 +98,7 @@ public class ClientController implements Serializable {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
 		System.out.println("après session");
-		//client.setConseiller(conseiller);
+		// client.setConseiller(conseiller);
 		conseiller.getListClients().add(client);
 		// client.setConseiller(conseiller);
 		System.out.println("après set");
