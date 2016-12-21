@@ -2,6 +2,10 @@ package org.formation.model;
 
 import javax.persistence.Embeddable;
 
+/**
+ * @author Nabila Marc-Antoine Quentin
+ * Lien avec le client avec Embeddable/Embadded
+ */
 @Embeddable
 public class Adresse {
 

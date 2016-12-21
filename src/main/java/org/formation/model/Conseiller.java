@@ -12,7 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.context.annotation.Scope;
-
+/**
+ * @author Nabila Marc-Antoine Quentin
+ * Lien avec Client en table
+ */
 @Entity
 public class Conseiller extends Banquier {
 

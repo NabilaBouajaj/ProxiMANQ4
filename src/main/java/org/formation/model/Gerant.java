@@ -9,7 +9,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 
 import javax.persistence.OneToMany;
-
+/**
+ * @author Nabila Marc-Antoine Quentin
+ * Non utilisé
+ */
 @Entity
 public class Gerant extends Banquier {
 

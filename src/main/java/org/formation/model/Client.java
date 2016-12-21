@@ -5,6 +5,11 @@ import java.util.List;
 
 import javax.persistence.*;
 
+/**
+ * @author Nabila Marc-Antoine Quentin
+ * Lien avec Adresse en Embedded
+ * Persistance en base de donnée et lien entre les tables client/conseiller/compte
+ */
 @Entity
 public class Client {
 	@Id

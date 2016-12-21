@@ -13,7 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
-
+/**
+ * @author Nabila Marc-Antoine Quentin
+ * Classe en héritage pour compte courant et compte épargne
+ * Persistance en base de données
+ * Lien avec le client en table
+ */
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public abstract class Compte {

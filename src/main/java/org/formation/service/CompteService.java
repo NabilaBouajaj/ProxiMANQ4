@@ -17,35 +17,59 @@ public class CompteService {
 
 	@Autowired
 	ICompteDao compteDao;
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Persister un compte
+	 */
 	public void persist(Compte compte) throws Exception {
 		compteDao.persist(compte);
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Mise à jour d'un compte
+	 */
 	public void merge(Compte compte) throws Exception {
 		compteDao.merge(compte);
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Surpmier un compte
+	 */
 	public void remove(Compte id) throws Exception {
 		compteDao.remove(id);
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Trouver un compte par son ID
+	 */
 	public Compte findById(long id) throws Exception {
 		return compteDao.findById(id);
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Trouver tous les comptes
+	 */
 	public List<Compte> findAll() throws Exception {
 		return compteDao.findAll();
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * 
+	 */
 	public List<Compte> findByProperty(String prop, Object val) throws Exception {
 		return compteDao.findByProperty(prop, val);
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * 
+	 */
 	public List<Compte> findInRange(int firstResult, int maxResults) throws Exception {
 		return compteDao.findInRange(firstResult, maxResults);
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * 
+	 */
 	public long count() throws Exception {
 		return compteDao.count();
 	}

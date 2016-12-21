@@ -8,7 +8,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
-
+/**
+ * @author Nabila Marc-Antoine Quentin
+ * Classe qui est en théritage pour Conseiller
+ */
 @MappedSuperclass
 public class Banquier{
 	@Id

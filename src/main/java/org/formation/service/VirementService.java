@@ -17,35 +17,66 @@ public class VirementService {
 	@Autowired
 	CompteService compteService;
 	
-	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Persister un virement
+	 */
 	public void persist(Virement v) throws Exception{
 		virementDao.persist(v);
 	}
 	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Mise à jour d'un virement 
+	 */
 	public void merge(Virement v) throws Exception{
 		virementDao.merge(v);
 	}
 
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Supprmier un virement
+	 */
 	public void remove(Virement v) throws Exception{
 		virementDao.remove(v);
 	}
 	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Trouver un virement par son ID 
+	 */
 	public Virement findById(long id) throws Exception{
 		return virementDao.findById(id);
 	}
 	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Trouver tous les virements
+	 */
 	public List<Virement> findAll() throws Exception{
 		return virementDao.findAll();
 	}
 	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Trouver tous les virements
+	 */
 	public List<Virement> findByProperty(String prop, Object val) throws Exception{
 		return virementDao.findByProperty(prop, val);
 	}
 	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * 
+	 */
 	public List<Virement> findInRange(int firstResult, int maxResults) throws Exception{
 		return virementDao.findInRange(firstResult, maxResults);
 }
 	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * 
+	 */
 	public long count() throws Exception{
 		return virementDao.count();
 	}
