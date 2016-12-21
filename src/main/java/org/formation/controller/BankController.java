@@ -104,7 +104,7 @@ public class BankController implements Serializable {
 			return "accueil.xhtml";
 		} else {
 
-			return "login.xhtml";
+			return "error.xhtml";
 		}
 
 		// ApplicationContext applicationContext = new
