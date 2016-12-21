@@ -27,7 +27,7 @@ public class CompteService {
 	}
 
 	public void remove(Compte id) throws Exception {
-		compteDao.remove(id);
+		compteDao.remove(id.getId());
 	}
 
 	public Compte findById(long id) throws Exception {

@@ -1,12 +1,13 @@
 package org.formation.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
-public class Client {
+public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -18,7 +19,7 @@ public class Client {
 	@Embedded
 	Adresse adresse;
 
-	@ManyToOne( fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
 
