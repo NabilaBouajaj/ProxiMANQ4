@@ -29,7 +29,7 @@ public class ClientService {
 		clientDao.remove(id);
 	}
 
-	public Client findById(int id) throws Exception {
+	public Client findById(long id) throws Exception {
 		return clientDao.findById(id);
 	}
 

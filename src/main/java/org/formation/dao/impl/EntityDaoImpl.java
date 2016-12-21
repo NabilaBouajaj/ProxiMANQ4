@@ -37,7 +37,7 @@ public class EntityDaoImpl<E> implements EntityDao<E> {
 	}
 
 	@Transactional(readOnly = true)
-	public E findById(int id) throws Exception {
+	public E findById(long id) throws Exception {
 		return (E) getEntityManager().find(getEntityClass(), id);
 	}
 
