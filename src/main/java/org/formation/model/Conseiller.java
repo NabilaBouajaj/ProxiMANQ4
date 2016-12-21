@@ -41,9 +41,5 @@ public class Conseiller extends Banquier {
 
 	}
 
-	@Override
-	public String toString() {
-		return "Conseiller [listClients=" + listClients + ", gerant=" + gerant + "]";
-	}
 
 }

@@ -88,35 +88,70 @@ public class BankController implements Serializable {
 	// }
 	// }
 	public String chargerCons() throws Exception {
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"/META-INF/spring/applicationContext-db-mysql.xml");
-		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		Boolean bool = false;
+		Conseiller conseiller = new Conseiller("admin", "admin", "admin", "admin");
+
+		if (("admin".equals(login)) && ("admin".equals(password))) {
+
+			bool = true;
+		} else {
+			bool = false;
+		}
+
+		if (bool) {
+			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+			session.setAttribute("Conseiller", conseiller);
+			return "accueil.xhtml";
+		} else {
+
+			return "login.xhtml";
+		}
+
+		// ApplicationContext applicationContext = new
+		// ClassPathXmlApplicationContext(
+		// "/META-INF/spring/applicationContext-db-mysql.xml");
+		// ConseillerService conseillerService =
+		// applicationContext.getBean("conseillerService",
+		// ConseillerService.class);
+		// HttpSession session = (HttpSession)
+		// FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		//
 		// List<Conseiller> listCons = conseillerService.findAll();
 		// System.out.println(listCons);
 		// System.out.println("Après liste");
+		// // System.out.println("Avant Boucle Conseiller");
+		// // for (Conseiller conseiller2 : listCons) {
+		// // if (conseiller2.getId() == 62) {
+		// // System.out.println("trouvé : " + conseiller2);
+		// // conseiller = conseiller2;
+		// // }
+		// // }
+		// // System.out.println("Avant find");
+		// // Conseiller conseiller = conseillerService.findById(62L);
+		// // System.out.println(conseiller);
+		// // System.out.println("Après find");
+		// // System.out.println(conseiller.getNom());
 		// Conseiller conseiller = new Conseiller();
+		// Boolean bool = false;
 		// for (Conseiller conseiller2 : listCons) {
-		// if (conseiller2.getLogin().equals("jesus")) {
+		// if ((conseiller2.getLogin().equals(login)) &&
+		// (conseiller2.getMotDePasse().equals(password))) {
 		// conseiller = conseiller2;
 		// System.out.println(conseiller);
+		//
+		// bool = true;
+		// } else {
+		// bool = false;
 		// }
 		// }
-		// System.out.println("Avant Boucle Conseiller");
-		// for (Conseiller conseiller2 : listCons) {
-		// if (conseiller2.getId() == 62) {
-		// System.out.println("trouvé : " + conseiller2);
-		// conseiller = conseiller2;
+		// if (bool) {
+		// session.setAttribute("Conseiller", conseiller);
+		//
+		// return "accueil.xhtml";
+		// } else {
+		//
+		// return "login.xhtml";
 		// }
-		// }
-		System.out.println("Avant find");
-		Conseiller conseiller = conseillerService.findById(62L);
-		System.out.println(conseiller);
-		System.out.println("Après find");
-		System.out.println(conseiller.getNom());
-		session.setAttribute("Conseiller", conseiller);
-
-		return "accueil.xhtml";
 
 	}
 
@@ -135,12 +170,31 @@ public class BankController implements Serializable {
 	}
 
 	public List<Client> obtenirListeClients() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
 		Conseiller cons = (Conseiller) session.getAttribute("Conseiller");
-		listClient = cons.getListClients();
+		List<Client> listClientTot = clientService.findAll();
+		// System.out.println(listClientTot);
+		// System.out.println(cons);
+		// System.out.println(cons.getId());
+		// for (Client client : listClientTot) {
+		// System.out.println(client.getNom());
+		// System.out.println(clientService.findById(client.getId()).getConseiller());
+		// // System.out.println(client.getNom() + " " +
+		// // client.getConseiller());
+		// Conseiller consI = client.getConseiller();
+		// if (consI.equals(cons)) {
+		// listClient.add(client);
+		// System.out.println(client);
+		// }
+		// }
+		// listClient = cons.getListClients();
 
 		// listclient.add(client);
-		return cons.getListClients();
+		return listClientTot;
 
 	}
 

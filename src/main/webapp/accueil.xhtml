@@ -39,34 +39,29 @@ Vous avez en gestion :
 					</p:column>
 					<p:column headerText="Numéro">
 						<h:form>
-							<h:commandLink value="#{c.adresse.numero}"
-								action="#{clientService.detailsClient(c)}">
-							</h:commandLink>
+							<h:outputText value="#{c.adresse.numero}" />
+
 						</h:form>
 					</p:column>
 
 					<p:column headerText="Rue">
 						<h:form>
-							<h:commandLink value="#{c.adresse.rue}"
-								action="#{clientService.detailsClient(c)}">
-							</h:commandLink>
+							<h:outputText value="#{c.adresse.rue}" />
 						</h:form>
 					</p:column>
 
 					<p:column headerText="Code Postal">
 						<h:form>
 
-							<h:commandLink value="#{c.adresse.codePostal}"
-								action="#{clientService.detailsClient(c)}">
-							</h:commandLink>
+							<h:outputText value="#{c.adresse.codePostal}" />
+
 						</h:form>
 					</p:column>
 					<p:column headerText="Ville">
 						<h:form>
-							<h:commandLink value="#{c.adresse.ville}"
-								action="#{clientService.detailsClient(c)}">
+							<h:outputText value="#{c.adresse.ville}" />
 
-							</h:commandLink>
+
 						</h:form>
 					</p:column>
 
