@@ -43,8 +43,15 @@ public class MainTest {
 
 		// System.out.println("!!!!!!!!!!\n"+service.listClients());
 		Conseiller conseiller = conseillerService.findById(62);
-		System.out.println(conseiller);
-		System.out.println(conseiller.getNom());
+		// System.out.println(conseiller);
+		// System.out.println(conseiller.getNom());
+		Adresse adresse = new Adresse("36", "avenue Cyrnos", "Paris", "hhh");
+		Client client = new Client("Nom", "prenom", "email@ee.com", adresse);
+		client.setConseiller(conseiller);
+		System.out.println(client);
+		System.out.println(client.getConseiller().getNom());
+		conseillerService.merge(conseiller);
+		clientService.createClient(client);
 	}
 
 }

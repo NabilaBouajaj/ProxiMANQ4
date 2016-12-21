@@ -105,21 +105,28 @@ public class ClientController implements Serializable {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
 		System.out.println(conseiller);
-		conseiller.getListClients().add(client);
-		System.out.println("creer client");
+		// conseiller.getListClients().add(client);
+
 		System.out.println(conseiller);
-//		client.setConseiller(conseiller);
+		client.setConseiller(conseiller);
 		System.out.println(client);
 		System.out.println(conseiller);
 
-		// clientService.createClient(client);
 		conseillerService.merge(conseiller);
 		// clientService.merge(client);
 		return "accueil.xhtml";
 
 	}
 
-	public String modifierClient(Client client) throws Exception {
+	public String modifierClient() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+
+		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
+		Client client = new Client(nom, prenom, email, adresse);
+
 		clientService.merge(client);
 		return "accueil.xhtml";
 

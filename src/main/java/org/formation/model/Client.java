@@ -18,7 +18,7 @@ public class Client {
 	@Embedded
 	Adresse adresse;
 
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne( fetch = FetchType.EAGER)
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
 
@@ -105,10 +105,5 @@ public class Client {
 
 	}
 
-	@Override
-	public String toString() {
-		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", adresse=" + adresse
-				+ ", conseiller=" + conseiller + "]";
-	}
-
+	
 }

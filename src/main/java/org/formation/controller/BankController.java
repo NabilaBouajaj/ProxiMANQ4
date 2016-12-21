@@ -135,17 +135,24 @@ public class BankController implements Serializable {
 	}
 
 	public List<Client> obtenirListeClients() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
 		Conseiller cons = (Conseiller) session.getAttribute("Conseiller");
-		listClient = cons.getListClients();
+		List<Client> listClientTot = clientService.findAll();
+		System.out.println(cons);
+		for (Client client : listClientTot) {
+			Conseiller consI = client.getConseiller();
+			if (consI.equals(cons)) {
+				listClient.add(client);
+			}
+		}
+		// listClient = cons.getListClients();
 
 		// listclient.add(client);
-		return cons.getListClients();
-
-	}
-
-	public Integer obtenirNombreCompte() {
-		return 0;
+		return listClient;
 
 	}
 
