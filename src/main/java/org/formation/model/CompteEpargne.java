@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 @Entity
 public class CompteEpargne extends Compte{
 	
+	public CompteEpargne(){
+		
+	}
 	
 
 }

@@ -17,21 +17,20 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
-
 @Controller
 public class BankController implements Serializable {
 	private static final long serialVersionUID = 3457285546581409379L;
 	// Banquier banq = new Banquier();
 	String login;
 	String password;
-	List<Client> listclient = new ArrayList<Client>();
+	List<Client> listClient = new ArrayList<Client>();
 
-	public List<Client> getListclient() {
-		return listclient;
+	public List<Client> getListClient() {
+		return listClient;
 	}
 
-	public void setListclient(List<Client> listclient) {
-		this.listclient = listclient;
+	public void setListclient(List<Client> listClient) {
+		this.listClient = listClient;
 	}
 
 	public String getLogin() {
@@ -88,15 +87,47 @@ public class BankController implements Serializable {
 	// return "home.xhtml";
 	// }
 	// }
+	public String chargerCons() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		// List<Conseiller> listCons = conseillerService.findAll();
+		// System.out.println(listCons);
+		// System.out.println("Après liste");
+		// Conseiller conseiller = new Conseiller();
+		// for (Conseiller conseiller2 : listCons) {
+		// if (conseiller2.getLogin().equals("jesus")) {
+		// conseiller = conseiller2;
+		// System.out.println(conseiller);
+		// }
+		// }
+		// System.out.println("Avant Boucle Conseiller");
+		// for (Conseiller conseiller2 : listCons) {
+		// if (conseiller2.getId() == 62) {
+		// System.out.println("trouvé : " + conseiller2);
+		// conseiller = conseiller2;
+		// }
+		// }
+		System.out.println("Avant find");
+		Conseiller conseiller = conseillerService.findById(62L);
+		System.out.println(conseiller);
+		System.out.println("Après find");
+		System.out.println(conseiller.getNom());
+		session.setAttribute("Conseiller", conseiller);
 
+		return "accueil.xhtml";
+
+	}
 
 	public void creerCons() throws Exception {
 
-		Conseiller conseiller = new Conseiller("Dieu3", "Notre père", "dieu", "dieu");
+		Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu", "dieu");
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+
 		session.setAttribute("Conseiller", conseiller);
 		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
 		conseillerService.persist(conseiller);
@@ -106,7 +137,7 @@ public class BankController implements Serializable {
 	public List<Client> obtenirListeClients() throws Exception {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller cons = (Conseiller) session.getAttribute("Conseiller");
-		listclient = cons.getListClients();
+		listClient = cons.getListClients();
 
 		// listclient.add(client);
 		return cons.getListClients();

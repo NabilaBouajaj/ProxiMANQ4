@@ -12,7 +12,7 @@ public interface IConseillerService {
 
 	public void remove(Conseiller id) throws Exception;
 
-	public Conseiller findById(int id) throws Exception;
+	public Conseiller findById(long id) throws Exception;
 
 	public List<Conseiller> findAll() throws Exception;
 

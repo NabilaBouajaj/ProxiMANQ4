@@ -12,31 +12,31 @@
 
 
 		<h1>Ouverture de compte</h1>
-		<p>Client: #{clientController.client.nom}
-			#{clientController.client.prenom} #{clientController.client.id}</p>
+<!-- 		<p>Client: #{clientController.client.nom} -->
+<!-- 			#{clientController.client.prenom} #{clientController.client.id}</p> -->
 		<h:form>
-			<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
-				<p:selectOneRadio id="compteacreer"
-					value="#{compteController.typeCompte}" layout="grid" columns="3">
-					<c:if
-						test="#{compteController.verifCompteCourant(clientController.client.id)}">
-						<f:selectItem itemLabel="Compte Courant" itemValue="cc" />
-					</c:if>
-					<c:if
-						test="#{compteController.verifCompteEpargne(clientController.client.id)}">
-						<f:selectItem itemLabel="Compte Epargne" itemValue="ce" />
-					</c:if>
-				</p:selectOneRadio>
-			</h:panelGrid>
+<!-- 			<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5"> -->
+<!-- 				<p:selectOneRadio id="compteacreer" -->
+<!-- 					value="#{compteController.typeCompte}" layout="grid" columns="3"> -->
+<!-- 					<c:if -->
+<!-- 						test="#{compteController.verifCompteCourant(clientController.client.id)}"> -->
+<!-- 						<f:selectItem itemLabel="Compte Courant" itemValue="cc" /> -->
+<!-- 					</c:if> -->
+<!-- 					<c:if -->
+<!-- 						test="#{compteController.verifCompteEpargne(clientController.client.id)}"> -->
+<!-- 						<f:selectItem itemLabel="Compte Epargne" itemValue="ce" /> -->
+<!-- 					</c:if> -->
+<!-- 				</p:selectOneRadio> -->
+<!-- 			</h:panelGrid> -->
 
-			<h:panelGrid columns="2">
-				<h:outputText value="Solde Initial" />
-				<h:inputText value="#{compteController.solde}" />
-			</h:panelGrid>
+<!-- 			<h:panelGrid columns="2"> -->
+<!-- 				<h:outputText value="Solde Initial" /> -->
+<!-- 				<h:inputText value="#{compteController.solde}" /> -->
+<!-- 			</h:panelGrid> -->
 
-			<p:commandButton
-				action="#{compteController.creerCompte(clientController.client.id)}"
-				value="Créer un nouveau compte"/>
+<!-- 			<p:commandButton -->
+<!-- 				action="#{compteController.creerCompte(clientController.client.id)}" -->
+<!-- 				value="Créer un nouveau compte"/> -->
 		</h:form>
 
 

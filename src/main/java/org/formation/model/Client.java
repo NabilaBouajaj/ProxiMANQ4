@@ -1,5 +1,7 @@
 package org.formation.model;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -16,9 +18,15 @@ public class Client {
 	@Embedded
 	Adresse adresse;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
+
+	@OneToOne(cascade = { CascadeType.ALL })
+	CompteCourant compteCourant;
+
+	@OneToOne(cascade = { CascadeType.ALL })
+	CompteEpargne compteEpargne;
 
 	public String getEmail() {
 		return email;
@@ -68,16 +76,39 @@ public class Client {
 		return conseiller;
 	}
 
+	public CompteCourant getCompteCourant() {
+		return compteCourant;
+	}
+
+	public void setCompteCourant(CompteCourant compteCourant) {
+		this.compteCourant = compteCourant;
+	}
+
+	public CompteEpargne getCompteEpargne() {
+		return compteEpargne;
+	}
+
+	public void setCompteEpargne(CompteEpargne compteEpargne) {
+		this.compteEpargne = compteEpargne;
+	}
+
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
 
 	public Client(String nom, String prenom, String email, Adresse adresse) {
+		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
 
+	}
+
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", adresse=" + adresse
+				+ ", conseiller=" + conseiller + "]";
 	}
 
 }
