@@ -119,7 +119,15 @@ public class ClientController implements Serializable {
 
 	}
 
-	public String modifierClient(Client client) throws Exception {
+	public String modifierClient() throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+
+		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
+		Client client = new Client(nom, prenom, email, adresse);
+
 		clientService.merge(client);
 		return "accueil.xhtml";
 

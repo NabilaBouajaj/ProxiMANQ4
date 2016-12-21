@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.context.annotation.Scope;
+
 @Entity
 public class Conseiller extends Banquier {
 
@@ -20,7 +22,7 @@ public class Conseiller extends Banquier {
 	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "gerant_id")
 	private Gerant gerant;
-
+	
 	public List<Client> getListClients() {
 
 		return listClients;

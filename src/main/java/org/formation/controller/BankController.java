@@ -29,7 +29,7 @@ public class BankController implements Serializable {
 		return listClient;
 	}
 
-	public void setListclient(List<Client> listClient) {
+	public void setListClient(List<Client> listClient) {
 		this.listClient = listClient;
 	}
 
