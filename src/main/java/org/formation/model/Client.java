@@ -18,7 +18,7 @@ public class Client {
 	@Embedded
 	Adresse adresse;
 
-	@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToOne( fetch = FetchType.EAGER)
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
 

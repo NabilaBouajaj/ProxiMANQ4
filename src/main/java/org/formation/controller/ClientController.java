@@ -105,15 +105,15 @@ public class ClientController implements Serializable {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
 		System.out.println(conseiller);
-		conseiller.getListClients().add(client);
-		System.out.println("creer client");
+		// conseiller.getListClients().add(client);
+
 		System.out.println(conseiller);
-//		client.setConseiller(conseiller);
+		client.setConseiller(conseiller);
 		System.out.println(client);
 		System.out.println(conseiller);
 
-		// clientService.createClient(client);
 		conseillerService.merge(conseiller);
+		clientService.createClient(client);
 		// clientService.merge(client);
 		return "accueil.xhtml";
 
