@@ -27,7 +27,7 @@ public class ConseillerService implements IConseillerService {
 	}
 
 	public void remove(Conseiller id) throws Exception {
-		conseillerDao.remove(id);
+		conseillerDao.remove(id.getId());
 	}
 
 	public Conseiller findById(long id) throws Exception {
@@ -49,7 +49,5 @@ public class ConseillerService implements IConseillerService {
 	public long count() throws Exception {
 		return conseillerDao.count();
 	}
-
-	
 
 }

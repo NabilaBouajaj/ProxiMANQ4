@@ -79,6 +79,14 @@ Vous avez en gestion :
 						<!-- 						<h:outputText value="#{c.compteCourant.solde}" /> -->
 					</p:column>
 
+					<p:column headerText="Supprimer le client">
+						<h:form>
+							<h:commandLink value="Supprimer"
+								action="#{clientController.supprimerClient(c)}">
+							</h:commandLink>
+						</h:form>
+					</p:column>
+
 
 				</p:dataTable>
 			</div>

@@ -119,6 +119,20 @@ public class ClientController implements Serializable {
 
 	}
 
+	public void supprimerClient(Client client) throws Exception {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
+		// ConseillerService conseillerService =
+		// applicationContext.getBean("conseillerService",
+		// ConseillerService.class);
+
+		// HttpSession session = (HttpSession)
+		// FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		// Client clientp = (Client) session.getAttribute("Client");
+		clientService.remove(client);
+	}
+
 	public String modifierClient() throws Exception {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
