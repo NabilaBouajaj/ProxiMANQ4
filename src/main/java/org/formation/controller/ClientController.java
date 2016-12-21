@@ -104,15 +104,18 @@ public class ClientController implements Serializable {
 		Client client = new Client(nom, prenom, email, adresse);
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Conseiller conseiller = (Conseiller) session.getAttribute("Conseiller");
-		System.out.println(conseiller);
+		// System.out.println(conseiller);
 		// conseiller.getListClients().add(client);
 
-		System.out.println(conseiller);
-		client.setConseiller(conseiller);
-		System.out.println(client);
-		System.out.println(conseiller);
+		// System.out.println(conseiller);
+		// client.setConseiller(conseiller);
+		// System.out.println(client);
+		// System.out.println(conseiller);
 
-		conseillerService.merge(conseiller);
+
+		// conseillerService.merge(conseiller);
+		clientService.createClient(client);
+
 		// clientService.merge(client);
 		return "accueil.xhtml";
 
@@ -124,10 +127,19 @@ public class ClientController implements Serializable {
 		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
 		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
 
-		Adresse adresse = new Adresse(numero, rue, ville, codePostal);
-		Client client = new Client(nom, prenom, email, adresse);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		Client clientp = (Client) session.getAttribute("Client");
+		Adresse adressep = clientp.getAdresse();
+		clientp.setEmail(email);
+		clientp.setNom(nom);
+		clientp.setPrenom(prenom);
+		adressep.setCodePostal(codePostal);
+		adressep.setNumero(numero);
+		adressep.setRue(rue);
+		adressep.setVille(ville);
+		clientp.setAdresse(adressep);
 
-		clientService.merge(client);
+		clientService.merge(clientp);
 		return "accueil.xhtml";
 
 	}

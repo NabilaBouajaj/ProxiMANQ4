@@ -1,5 +1,7 @@
 package org.formation.test;
 
+import java.util.List;
+
 import org.formation.model.Adresse;
 import org.formation.model.Client;
 import org.formation.model.Conseiller;
@@ -15,11 +17,20 @@ public class MainPropre {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
 		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
-		Client client = new Client("nom", "jidrs", "ovs", new Adresse());
-		clientService.createClient(client);
+		// Client client = new Client("nom", "jidrs", "ovs", new Adresse());
+		// clientService.createClient(client);
 
 		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
-		Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu", "dieu");
-		conseillerService.persist(conseiller);
+		// Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu",
+		// "dieu");
+		// conseillerService.persist(conseiller);
+
+		// client.setConseiller(conseiller);
+		// System.out.println(client);
+		// System.out.println(client.getConseiller().getNom());
+		// conseillerService.merge(conseiller);
+		// clientService.createClient(client);
+		List<Client> listClientTot = clientService.findAll();
+		System.out.println(listClientTot);
 	}
 }

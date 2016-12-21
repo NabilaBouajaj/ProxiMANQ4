@@ -11,6 +11,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.springframework.stereotype.Component;
 
@@ -24,9 +25,8 @@ public abstract class Compte {
 	private double montant;
 	private LocalDate dateOuverture;
 	
-//	@ManyToOne(cascade={CascadeType.PERSIST})
-//	@JoinColumn(name="client_id")
-//	private Client client;
+	@OneToOne(cascade={CascadeType.PERSIST})
+	private Client client;
 	
 	public double getMontant() {
 		return montant;

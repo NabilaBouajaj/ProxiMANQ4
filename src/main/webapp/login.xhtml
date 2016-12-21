@@ -9,32 +9,79 @@
 <h:body>
 
 	<ui:composition template="/WEB-INF/tags/layout.xhtml">
-		<ui:define name="content">
-			<div class="well well-lg">
-<form action="j_security_check" method="post">
+		<ui:define name="header">
+			<center>
+				<p:fieldset legend="Identification" toggleable="false"
+					toggleSpeed="500">
 
-				<p:fieldset legend="Connexion" toggleable="false" toggleSpeed="500">
-					<center>
-						<label for="name">Login</label>
-						<div class="form-group">
-						<input type="text" name="j_username" placeholder="Your Login"  class="form-control" required="true" />
-					</div>
+					<img
+						src="https://img1.lght.pics/0b46f8bc4911659145cbd0a504fc14dc.jpg" />
 
-					
-						<label for="name">Password</label>
-						<div class="form-group">
-						<input type="password" name="j_password" placeholder="Your Password"  class="form-control" required="true"/>
-					</div>
-
-					<div class="form-group">
-						<input type="submit" name="login" value="Login" class="btn btn-primary" />
-					</div>
-                      
-					</center>
 				</p:fieldset>
-				</form>
-			</div>
+				<br />
+				<h:form>
 
+					<p:panelGrid columns="2">
+
+
+
+						<p:outputLabel for="login" value="Login" />
+						<p:inputText id="login" value="#{bankController.login}">
+						</p:inputText>
+
+
+						<p:outputLabel for="motdepasse" value="Mot de passe" />
+						<p:inputText id="motdepasse" value="#{bankController.password}">
+						</p:inputText>
+
+
+					</p:panelGrid>
+					<br />
+
+					<p>
+						<p:commandButton action="#{bankController.chargerCons()}"
+							value="Se connecter" />
+					</p>
+
+
+				</h:form>
+
+
+
+
+
+
+
+				<!-- 			<div class="well well-lg"> -->
+
+				<!-- 				<form action="j_security_check" method="post"> -->
+
+				<!-- 					<p:fieldset legend="Connexion" toggleable="false" toggleSpeed="500"> -->
+				<!-- 						<center> -->
+				<!-- 							<label for="name">Login</label> -->
+				<!-- 							<div class="form-group"> -->
+				<!-- 								<input type="text" name="j_username" placeholder="Your Login" -->
+				<!-- 									class="form-control" required="true" /> -->
+				<!-- 							</div> -->
+
+
+				<!-- 							<label for="name">Password</label> -->
+				<!-- 							<div class="form-group"> -->
+				<!-- 								<input type="password" name="j_password" -->
+				<!-- 									placeholder="Your Password" class="form-control" -->
+				<!-- 									required="true" /> -->
+				<!-- 							</div> -->
+
+				<!-- 							<div class="form-group"> -->
+				<!-- 								<input type="submit" name="login" value="Login" -->
+				<!-- 									class="btn btn-primary" /> -->
+				<!-- 							</div> -->
+
+				<!-- 						</center> -->
+				<!-- 					</p:fieldset> -->
+				<!-- 				</form> -->
+				<!-- 			</div> -->
+			</center>
 		</ui:define>
 	</ui:composition>
 

@@ -5,13 +5,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
 import org.formation.model.Client;
 import org.formation.model.Compte;
 import org.formation.model.CompteCourant;
 import org.formation.model.CompteEpargne;
 import org.formation.service.ClientService;
 import org.formation.service.CompteService;
+import org.formation.service.ConseillerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -30,15 +36,22 @@ public class CompteController implements Serializable{
 	ClientService clientService;
 	
 	public String creerCompteCourant(){
-		Client client = new Client();
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		Client clientp = (Client) session.getAttribute("Client");
+//		Client client = new Client();
 		dateOuverture = LocalDate.now();
 		CompteCourant cc = new CompteCourant(montant, dateOuverture);
 	
-		client.setCompteCourant(cc);
+		clientp.setCompteCourant(cc);
 		
 		
 		try {
-			clientService.merge(client);
+			clientService.merge(clientp);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,14 +62,21 @@ public class CompteController implements Serializable{
 		
 	}
 	public String creerCompteEpargne(){
-		Client client = new Client();
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/applicationContext-db-mysql.xml");
+		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
+		ConseillerService conseillerService = applicationContext.getBean("conseillerService", ConseillerService.class);
+
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		Client clientp = (Client) session.getAttribute("Client");
+//		Client client = new Client();
 		dateOuverture = LocalDate.now();
 		CompteEpargne ce = new CompteEpargne(montant, dateOuverture);
 		
-		client.setCompteEpargne(ce);
+		clientp.setCompteEpargne(ce);
 		
 		try {
-			clientService.merge(client);
+			clientService.merge(clientp);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
