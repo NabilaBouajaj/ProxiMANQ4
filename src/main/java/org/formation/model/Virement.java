@@ -67,6 +67,11 @@ public class Virement {
 	public Virement() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "Virement [id=" + id + ", date=" + date + ", compteEx=" + compteEx + ", compteBe=" + compteBe
+				+ ", montant=" + montant + "]";
+	}
 	
 	
 	

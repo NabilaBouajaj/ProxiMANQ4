@@ -2,13 +2,10 @@ package org.formation.service;
 
 import java.util.List;
 
-
-
 import org.formation.dao.IClientDao;
 import org.formation.model.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class ClientService {
@@ -36,7 +33,8 @@ public class ClientService {
 	 * Suprimer un client
 	 */
 	public void remove(Client id) throws Exception {
-		clientDao.remove(id);
+
+		clientDao.remove(id.getId());
 	}
 	/**
 	 * @author Nabila Marc-Antoine Quentin

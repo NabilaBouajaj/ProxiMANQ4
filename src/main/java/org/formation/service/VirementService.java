@@ -89,7 +89,7 @@ public class VirementService {
 	 */
 	public boolean virement(Virement v) {
 	
-	
+	System.out.println(v);
 	try {
 		long compteBeId = v.getCompteBe();
 		long compteExId = v.getCompteEx();
@@ -97,7 +97,7 @@ public class VirementService {
 		Compte compteBe = compteService.findById(compteBeId);
 		Compte compteEx = compteService.findById(compteExId);
 		
-		compteBe.setMontant(compteEx.getMontant() + v.getMontant());
+		compteBe.setMontant(compteBe.getMontant() + v.getMontant());
 		compteEx.setMontant(compteEx.getMontant() - v.getMontant());
 		
 		compteService.merge(compteEx);

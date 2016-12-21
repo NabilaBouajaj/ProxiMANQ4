@@ -104,7 +104,7 @@ public class BankController implements Serializable {
 			return "accueil.xhtml";
 		} else {
 
-			return "login.xhtml";
+			return "error.xhtml";
 		}
 
 		// ApplicationContext applicationContext = new
@@ -177,6 +177,7 @@ public class BankController implements Serializable {
 		ClientService clientService = applicationContext.getBean("clientService", ClientService.class);
 		Conseiller cons = (Conseiller) session.getAttribute("Conseiller");
 		List<Client> listClientTot = clientService.findAll();
+
 		// System.out.println(listClientTot);
 		// System.out.println(cons);
 		// System.out.println(cons.getId());
@@ -200,6 +201,7 @@ public class BankController implements Serializable {
 
 	public Integer obtenirNombreCompte() {
 		return 0;
+
 
 	}
 

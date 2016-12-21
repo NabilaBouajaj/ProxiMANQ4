@@ -36,7 +36,7 @@ public class CompteService {
 	 * Surpmier un compte
 	 */
 	public void remove(Compte id) throws Exception {
-		compteDao.remove(id);
+		compteDao.remove(id.getId());
 	}
 	/**
 	 * @author Nabila Marc-Antoine Quentin

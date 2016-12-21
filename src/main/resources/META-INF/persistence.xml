@@ -15,6 +15,7 @@
 		<class>org.formation.model.CompteEpargne</class>
 		<class>org.formation.model.CompteCourant</class>
 		<class>org.formation.model.Banquier</class>
+		<class>org.formation.model.Virement</class>
 
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>

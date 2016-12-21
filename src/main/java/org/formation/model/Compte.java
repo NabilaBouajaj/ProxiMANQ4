@@ -11,6 +11,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.springframework.stereotype.Component;
 /**
@@ -25,13 +26,12 @@ public abstract class Compte {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private double montant;
 	private LocalDate dateOuverture;
 	
-//	@ManyToOne(cascade={CascadeType.PERSIST})
-//	@JoinColumn(name="client_id")
-//	private Client client;
+	@OneToOne(cascade={CascadeType.PERSIST})
+	private Client client;
 	
 	public double getMontant() {
 		return montant;
@@ -45,10 +45,10 @@ public abstract class Compte {
 	public void setDateOuverture(LocalDate dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public Compte(double montant, LocalDate dateOuverture) {
@@ -59,6 +59,7 @@ public abstract class Compte {
 	public Compte() {
 		super();
 	}
+	
 	
 	
 	

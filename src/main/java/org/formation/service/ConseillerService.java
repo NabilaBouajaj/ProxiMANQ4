@@ -36,7 +36,7 @@ public class ConseillerService implements IConseillerService {
 	 * Supprimer un conseiller
 	 */
 	public void remove(Conseiller id) throws Exception {
-		conseillerDao.remove(id);
+		conseillerDao.remove(id.getId());
 	}
 	/**
 	 * @author Nabila Marc-Antoine Quentin
@@ -70,7 +70,5 @@ public class ConseillerService implements IConseillerService {
 	public long count() throws Exception {
 		return conseillerDao.count();
 	}
-
-	
 
 }
