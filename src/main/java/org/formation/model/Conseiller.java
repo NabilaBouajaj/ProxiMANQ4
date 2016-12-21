@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Scope;
 @Entity
 public class Conseiller extends Banquier {
 
-	@OneToMany(mappedBy = "conseiller", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "conseiller", fetch = FetchType.EAGER)
 	private List<Client> listClients = new ArrayList<Client>();
 
 	@ManyToOne(cascade = { CascadeType.ALL })
