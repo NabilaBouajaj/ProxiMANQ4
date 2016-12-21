@@ -43,15 +43,16 @@ public class CompteController implements Serializable{
 
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Client clientp = (Client) session.getAttribute("Client");
-//		Client client = new Client();
+
 		dateOuverture = LocalDate.now();
 		CompteCourant cc = new CompteCourant(montant, dateOuverture);
-	
+
 		clientp.setCompteCourant(cc);
 		
 		
 		try {
 			clientService.merge(clientp);
+		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,7 +70,7 @@ public class CompteController implements Serializable{
 
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		Client clientp = (Client) session.getAttribute("Client");
-//		Client client = new Client();
+
 		dateOuverture = LocalDate.now();
 		CompteEpargne ce = new CompteEpargne(montant, dateOuverture);
 		

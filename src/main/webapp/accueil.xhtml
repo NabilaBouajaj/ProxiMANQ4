@@ -14,7 +14,7 @@
 Vous avez en gestion :
 			<ul>
 				<li>#{bankController.obtenirListeClients().size()} clients</li>
-				<li>#{bankController.obtenirNombreCompte()} comptes</li>
+<!-- 				<li>#{bankController.obtenirNombreCompte()} comptes</li> -->
 				<!-- 				<li>#{bankController.obtenirSommeTotaleConseiller()} euros</li> -->
 			</ul>
 
@@ -76,7 +76,7 @@ Vous avez en gestion :
 
 
 					<p:column headerText="Solde Compte Courant">
-					<h:outputText value="#{compteController.compteCourant.montant}" />
+					<h:outputText value="#{c.compteCourant.montant}" />
 					</p:column>
 
 					<p:column headerText="Supprimer le client">

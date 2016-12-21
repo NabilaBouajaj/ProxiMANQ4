@@ -16,8 +16,8 @@ public class VirementController {
 	private Virement virement;
 	private Client clientEx;
 	private Client clientBe;
-	private long compteExId;
-	private long compteBeId;
+	private long compteExId = 0L;
+	private long compteBeId = 0L;
 	private double montant;
 	
 	@Autowired
@@ -131,13 +131,14 @@ public String virement(){
 	Date now = new Date();
 	DateFormat shDateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 	Virement virement = new Virement();
-	virement.setMontant(montant);
+	virement.setDate(shDateFormat.format(now));
 	virement.setCompteEx(compteExId);
 	virement.setCompteBe(compteBeId);
-	virement.setDate(shDateFormat.format(now));
+	virement.setMontant(montant);
+
 	System.out.println(virement);
 	virementService.virement(virement);
-	return "virement.xhtml";
+	return "accueil.xhtml";
 	}
 	
 	

@@ -18,6 +18,13 @@ public CompteCourant(double montant, LocalDate dateOuverture) {
 	// TODO Auto-generated constructor stub
 }
 
+@Override
+public String toString() {
+	return "CompteCourant numero = "+ getId() + " solde = " + + getMontant() + " €";
+}
+
+
+
 
 	
 }

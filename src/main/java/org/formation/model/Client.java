@@ -23,10 +23,10 @@ public class Client implements Serializable {
 	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
 
-	@OneToOne(cascade = { CascadeType.ALL })
+	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	CompteCourant compteCourant;
 
-	@OneToOne(cascade = { CascadeType.ALL })
+	@OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	CompteEpargne compteEpargne;
 
 	public String getEmail() {

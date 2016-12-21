@@ -15,6 +15,11 @@ public class CompteEpargne extends Compte{
 		super(montant, dateOuverture);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "CompteEpargne numero = "+ getId() + " solde = " + + getMontant() + " €";
+	}
 	
 
 }
