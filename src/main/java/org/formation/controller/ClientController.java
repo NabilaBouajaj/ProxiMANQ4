@@ -90,6 +90,10 @@ public class ClientController implements Serializable {
 	@Autowired
 	ConseillerService conseillerService;
 
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * créer un client
+	 */
 	public String creerClient() throws Exception {
 		// ApplicationContext applicationContext = new
 		// ClassPathXmlApplicationContext(
@@ -120,7 +124,10 @@ public class ClientController implements Serializable {
 		return "accueil.xhtml";
 
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Supprimer un client
+	 */
 	public void supprimerClient(Client client) throws Exception {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
@@ -135,6 +142,10 @@ public class ClientController implements Serializable {
 		clientService.remove(client);
 	}
 
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * modifier un client
+	 */
 	public String modifierClient() throws Exception {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
@@ -157,7 +168,10 @@ public class ClientController implements Serializable {
 		return "accueil.xhtml";
 
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Afficher le détail d'un client
+	 */
 	public String detailsClient(Client client) throws Exception {
 		System.out.println(client);
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);

@@ -99,7 +99,10 @@ public class VirementController {
 		this.virementService = virementService;
 	}
 
-	// methode qui verifie si le compte beneficiaire et expediteur existe
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * methode qui verifie si le compte beneficiaire et expediteur existe
+	 */
 	public boolean compteCourantBeExist(){
 		if(clientBe.getCompteCourant() != null){
 			return true;
@@ -125,7 +128,10 @@ public class VirementController {
 		return false;
 	}
 	
-	// methode de virement
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * methode de virement
+	 */
 	
 public String virement(){
 	Date now = new Date();

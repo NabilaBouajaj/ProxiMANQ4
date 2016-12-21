@@ -35,6 +35,10 @@ public class CompteController implements Serializable{
 	@Autowired
 	ClientService clientService;
 	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Créer un compte courant
+	 */
 	public String creerCompteCourant(){
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
@@ -62,6 +66,11 @@ public class CompteController implements Serializable{
 		return "accueil.xhtml";
 		
 	}
+	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Créer un compte épargne
+	 */
 	public String creerCompteEpargne(){
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
@@ -87,7 +96,10 @@ public class CompteController implements Serializable{
 		return "accueil.xhtml";
 		
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Avoir tous les comptes
+	 */
 	public Collection<Compte> getAllComptes(){
 		Collection<Compte> comptes = new ArrayList<>();
 		try {
@@ -110,15 +122,34 @@ public class CompteController implements Serializable{
 		
 		
 	}
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * obtenir le montant
+	 */
 	public double getMontant() {
 		return montant;
 	}
+	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * mettre un montant
+	 */
 	public void setMontant(double montant) {
 		this.montant = montant;
 	}
+	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Obtenir Date ouverture
+	 */
 	public LocalDate getDateOuverture() {
 		return dateOuverture;
 	}
+	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * mettre date ouverture 
+	 */
 	public void setDateOuverture(LocalDate dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}

@@ -87,6 +87,11 @@ public class BankController implements Serializable {
 	// return "home.xhtml";
 	// }
 	// }
+	
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Login
+	 */
 	public String chargerCons() throws Exception {
 		Boolean bool = false;
 		Conseiller conseiller = new Conseiller("admin", "admin", "admin", "admin");
@@ -154,7 +159,10 @@ public class BankController implements Serializable {
 		// }
 
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Création conseiller sur la page home qui n'est plus utilisé
+	 */
 	public void creerCons() throws Exception {
 
 		Conseiller conseiller = new Conseiller("Dieu", "Notre père", "dieu", "dieu");
@@ -168,7 +176,10 @@ public class BankController implements Serializable {
 		conseillerService.persist(conseiller);
 
 	}
-
+	/**
+	 * @author Nabila Marc-Antoine Quentin
+	 * Afficher la liste des clients sur la page accueil
+	 */
 	public List<Client> obtenirListeClients() throws Exception {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/applicationContext-db-mysql.xml");
